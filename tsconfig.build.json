@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "outDir": "types"
+  },
+  "exclude": ["**/*.stories.ts", "**/*.stories.tsx"]
+}

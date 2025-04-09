@@ -1,0 +1,79 @@
+{
+  "name": "@mints/component-template",
+  "packageManager": "yarn@4.7.0",
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "types": "types",
+  "main": "./dist/my-component.umd.cjs",
+  "module": "./dist/my-component.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/my-component.js"
+      },
+      "require": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/my-component.umd.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf types",
+    "build": "yarn clean && tsc -p tsconfig.build.json && vite build",
+    "lint": "eslint . --fix",
+    "prettier": "prettier . --write",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepublish": "yarn build",
+    "publish": "yarn npm publish --access public",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{html,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.5",
+    "@mints/eslint-config": "^2.0.0",
+    "@storybook/addon-essentials": "^8.6.4",
+    "@storybook/addon-interactions": "^8.6.4",
+    "@storybook/addon-links": "^8.6.4",
+    "@storybook/addon-onboarding": "^8.6.4",
+    "@storybook/blocks": "^8.6.4",
+    "@storybook/react": "^8.6.4",
+    "@storybook/react-vite": "^8.6.4",
+    "@storybook/test": "^8.6.4",
+    "@types/node": "^20.4.6",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^9.22.0",
+    "eslint-plugin-storybook": "^0.11.4",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
+    "pinst": "^3.0.0",
+    "prettier": "^3.3.2",
+    "storybook": "^8.6.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
