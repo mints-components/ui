@@ -36,3 +36,5 @@ types
 *.njsproj
 *.sln
 *.sw?
+
+.storybook/index.css
