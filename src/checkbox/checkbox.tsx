@@ -1,0 +1,75 @@
+import clsx from 'clsx';
+import React, { useEffect, useRef } from 'react';
+
+export interface CheckboxProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  indeterminate?: boolean;
+}
+
+export const Checkbox: React.FC<CheckboxProps> = ({
+  label,
+  indeterminate = false,
+  className,
+  disabled,
+  ...props
+}) => {
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.indeterminate = indeterminate && !props.checked;
+    }
+  }, [indeterminate, props.checked]);
+
+  const isDisabled = disabled;
+
+  return (
+    <label
+      className={clsx(
+        'inline-flex items-center gap-2 cursor-pointer select-none',
+        isDisabled && 'opacity-50 cursor-not-allowed',
+        className,
+      )}
+    >
+      <span className="relative w-5 h-5">
+        <input
+          ref={ref}
+          type="checkbox"
+          disabled={isDisabled}
+          className={clsx(
+            'peer appearance-none w-full h-full border transition-all rounded',
+            'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900',
+            props.checked || indeterminate
+              ? 'bg-zinc-900 border-zinc-900'
+              : 'bg-white border-zinc-400',
+            !isDisabled && 'peer-hover:scale-[1.02]',
+            isDisabled && 'bg-zinc-200 border-zinc-200',
+          )}
+          {...props}
+        />
+
+        <svg
+          className={clsx(
+            'absolute top-1/2 left-1/2 w-3 h-3 -translate-x-1/2 -translate-y-1/2 text-white transition-opacity duration-200 pointer-events-none',
+            props.checked || indeterminate ? 'opacity-100' : 'opacity-0',
+          )}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          {props.checked ? (
+            <polyline points="20 6 9 17 4 12" />
+          ) : indeterminate ? (
+            <line x1="6" y1="12" x2="18" y2="12" />
+          ) : null}
+        </svg>
+      </span>
+
+      {label && <span className="text-sm text-zinc-900">{label}</span>}
+    </label>
+  );
+};
