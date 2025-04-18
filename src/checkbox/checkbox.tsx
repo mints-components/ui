@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import React, { useEffect, useRef } from 'react';
 
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -7,44 +6,40 @@ export interface CheckboxProps
   indeterminate?: boolean;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export function Checkbox({
   label,
   indeterminate = false,
   className,
   disabled,
   ...props
-}) => {
-  const ref = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.indeterminate = indeterminate && !props.checked;
+}: CheckboxProps) {
+  const inputRef = (el: HTMLInputElement | null) => {
+    if (el) {
+      el.indeterminate = !!indeterminate && !props.checked;
     }
-  }, [indeterminate, props.checked]);
-
-  const isDisabled = disabled;
+  };
 
   return (
     <label
       className={clsx(
         'inline-flex items-center gap-2 cursor-pointer select-none',
-        isDisabled && 'opacity-50 cursor-not-allowed',
+        disabled && 'opacity-50 cursor-not-allowed',
         className,
       )}
     >
       <span className="relative w-5 h-5">
         <input
-          ref={ref}
+          ref={inputRef}
           type="checkbox"
-          disabled={isDisabled}
+          disabled={disabled}
           className={clsx(
             'peer appearance-none w-full h-full border transition-all rounded',
             'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900',
             props.checked || indeterminate
               ? 'bg-zinc-900 border-zinc-900'
               : 'bg-white border-zinc-400',
-            !isDisabled && 'peer-hover:scale-[1.02]',
-            isDisabled && 'bg-zinc-200 border-zinc-200',
+            !disabled && 'peer-hover:scale-[1.02]',
+            disabled && 'bg-zinc-200 border-zinc-200',
           )}
           {...props}
         />
@@ -72,4 +67,4 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       {label && <span className="text-sm text-zinc-900">{label}</span>}
     </label>
   );
-};
+}
