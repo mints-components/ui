@@ -1,5 +1,5 @@
 {
-  "name": "@mints/component-template",
+  "name": "@mints/ui",
   "packageManager": "yarn@4.7.0",
   "version": "1.0.0",
   "type": "module",
@@ -8,28 +8,31 @@
     "types"
   ],
   "types": "types",
-  "main": "./dist/my-component.umd.cjs",
-  "module": "./dist/my-component.js",
+  "main": "./dist/mints-ui.umd.cjs",
+  "module": "./dist/mints-ui.js",
   "exports": {
     ".": {
       "import": {
         "types": "./types/index.d.ts",
-        "default": "./dist/my-component.js"
+        "default": "./dist/mints-ui.js"
       },
       "require": {
         "types": "./types/index.d.ts",
-        "default": "./dist/my-component.umd.cjs"
+        "default": "./dist/mints-ui.umd.cjs"
       }
-    }
+    },
+    "./style.css": "./dist/mints-ui.min.css"
   },
   "scripts": {
     "clean": "rm -rf dist && rm -rf types",
-    "build": "yarn clean && tsc -p tsconfig.build.json && vite build",
+    "build": "yarn clean && tsc -p tsconfig.build.json && vite build && yarn build:css:min",
     "lint": "eslint . --fix",
     "prettier": "prettier . --write",
-    "storybook": "yarn taiwindcss-build & storybook dev -p 6006",
+    "storybook": "yarn build:css:storybook & storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "taiwindcss-build": "tailwindcss -i ./src/index.css -o ./.storybook/index.css --watch",
+    "build:css:storybook": "tailwindcss -i ./src/index.css -o ./.storybook/index.css --watch",
+    "build:css:min": "tailwindcss -i ./src/index.css -o ./dist/mints-ui.min.css --minify",
+    "build:css": "tailwindcss -i ./src/index.css -o ./dist/mints-ui.css",
     "prepublish": "yarn build",
     "publish": "yarn npm publish --access public",
     "postinstall": "husky install",
@@ -47,8 +50,6 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tailwindcss": "^4.1.3"
   },
   "devDependencies": {
@@ -74,11 +75,12 @@
     "lint-staged": "^14.0.1",
     "pinst": "^3.0.0",
     "prettier": "^3.3.2",
+    "react": "^19.0.0",
     "storybook": "^8.6.4",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^19.0.0"
   }
 }
