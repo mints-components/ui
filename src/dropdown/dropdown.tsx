@@ -16,7 +16,7 @@ export function Dropdown({ menu, align = 'right', children }: DropdownProps) {
   return (
     <div className="relative inline-block text-left">
       <div className="group inline-flex flex-col">
-        <div>{children}</div>
+        <div className="cursor-pointer">{children}</div>
         <div
           className={clsx(
             'absolute top-full translate-y-1 group-hover:translate-y-2 transition-all duration-200 ease-out',
