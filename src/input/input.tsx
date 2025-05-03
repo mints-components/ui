@@ -34,7 +34,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={clsx(
             'border border-zinc-300 bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white dark:border-zinc-700',
             'placeholder:text-zinc-400 dark:placeholder:text-zinc-500',
-            'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-white',
+            'focus:outline-none focus:border-zinc-900 dark:focus:border-white',
             sizeClass[size],
             className,
           )}
