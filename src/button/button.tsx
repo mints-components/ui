@@ -8,11 +8,13 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  icon?: React.ReactNode;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'default',
+  icon,
   className,
   children,
   disabled,
@@ -33,18 +35,29 @@ export const Button: React.FC<ButtonProps> = ({
     ),
   }[variant];
 
-  const sizeClass = {
-    sm: 'text-sm px-3 py-1.5',
-    default: 'text-base px-4 py-2',
-    lg: 'text-lg px-5 py-2.5',
-  }[size];
+  const sizeClass = (() => {
+    if (!children && icon) {
+      return {
+        sm: 'w-8 h-8 text-sm',
+        default: 'w-10 h-10 text-base',
+        lg: 'w-12 h-12 text-lg',
+      }[size];
+    } else {
+      return {
+        sm: 'text-sm px-3 py-1.5',
+        default: 'text-base px-4 py-2',
+        lg: 'text-lg px-5 py-2.5',
+      }[size];
+    }
+  })();
 
   return (
     <button
-      className={clsx(base, variantClass, sizeClass, className)}
+      className={clsx(base, variantClass, sizeClass, 'gap-2', className)}
       disabled={disabled}
       {...props}
     >
+      {icon && <span className="w-4 h-4">{icon}</span>}
       {children}
     </button>
   );
