@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import { Spinner } from '../spinner';
+
 export type ButtonVariant = 'primary' | 'outline' | 'link';
 export type ButtonSize = 'sm' | 'default' | 'lg';
 
@@ -9,17 +11,19 @@ export interface ButtonProps
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: React.ReactNode;
+  loading?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export function Button({
   variant = 'primary',
   size = 'default',
   disabled,
   icon,
+  loading = false,
   className,
   children,
   ...props
-}) => {
+}: ButtonProps) {
   const base =
     'inline-flex items-center justify-center font-medium rounded-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
 
@@ -40,30 +44,45 @@ export const Button: React.FC<ButtonProps> = ({
     ),
   }[variant];
 
-  const sizeClass = (() => {
-    if (!children && icon) {
-      return {
+  const isIconOnly = !children && (icon || loading);
+
+  const sizeClass = isIconOnly
+    ? {
         sm: 'w-8 h-8 text-sm',
         default: 'w-10 h-10 text-base',
         lg: 'w-12 h-12 text-lg',
-      }[size];
-    } else {
-      return {
+      }[size]
+    : {
         sm: 'text-sm px-3 py-1.5',
         default: 'text-base px-4 py-2',
         lg: 'text-lg px-5 py-2.5',
       }[size];
-    }
-  })();
+
+  const iconSizeClass = { sm: 'w-4 h-4', default: 'w-5 h-5', lg: 'w-6 h-6' }[
+    size
+  ];
 
   return (
     <button
       className={clsx(base, variantClass, sizeClass, 'gap-2', className)}
-      disabled={disabled}
+      disabled={disabled || loading}
       {...props}
     >
-      {icon && <span className="w-4 h-4">{icon}</span>}
+      {loading && (
+        <span
+          className={clsx(iconSizeClass, 'flex items-center justify-center')}
+        >
+          <Spinner />
+        </span>
+      )}
+      {!loading && icon && (
+        <span
+          className={clsx(iconSizeClass, 'flex items-center justify-center')}
+        >
+          {icon}
+        </span>
+      )}
       {children}
     </button>
   );
-};
+}

@@ -22,6 +22,7 @@ const meta: Meta<typeof Button> = {
   },
   argTypes: {
     disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
     variant: {
       control: 'radio',
       options: ['primary', 'outline', 'link'],
@@ -37,10 +38,6 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-//
-// 🌟 Basic showcase
-//
-
 export const Basic: Story = {
   args: {
     children: 'Button',
@@ -48,9 +45,6 @@ export const Basic: Story = {
   },
 };
 
-//
-// 🌟 Variants showcase
-//
 export const Variants: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-4">
@@ -65,9 +59,6 @@ export const Variants: Story = {
   ),
 };
 
-//
-// 🌟 Sizes showcase
-//
 export const Sizes: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-4 items-center">
@@ -84,9 +75,6 @@ export const Sizes: Story = {
   ),
 };
 
-//
-// 🌟 Disabled states showcase
-//
 export const DisabledStates: Story = {
   args: { disabled: true },
   render: (args) => (
@@ -102,9 +90,6 @@ export const DisabledStates: Story = {
   ),
 };
 
-//
-// 🌟 With icon showcase
-//
 export const WithIcon: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-4 items-center">
@@ -120,6 +105,57 @@ export const WithIcon: Story = {
       <Button {...args} variant="link" icon={<AiFillNotification />}>
         With Text
       </Button>
+    </div>
+  ),
+};
+
+export const LoadingStates: Story = {
+  args: { loading: true },
+  render: (args) => (
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-4">
+        <Button {...args} size="sm">
+          Small
+        </Button>
+        <Button {...args} size="default">
+          Default
+        </Button>
+        <Button {...args} size="lg">
+          Large
+        </Button>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Button {...args} variant="primary">
+          Primary
+        </Button>
+        <Button {...args} variant="outline">
+          Outline
+        </Button>
+        <Button {...args} variant="link">
+          Link
+        </Button>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Button {...args} size="default" icon={<AiFillNotification />} />
+        <Button {...args} size="lg" icon={<AiFillNotification />} />
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Button {...args} size="default" icon={<AiFillNotification />}>
+          With Text
+        </Button>
+        <Button {...args} size="lg" icon={<AiFillNotification />}>
+          Large With Text
+        </Button>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Button {...args} size="default" disabled>
+          Disabled + Loading
+        </Button>
+      </div>
     </div>
   ),
 };

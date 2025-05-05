@@ -6,27 +6,31 @@ export interface SpinnerProps {
   className?: string;
 }
 
-export function Spinner({
-  size = 24,
-  color = '#4b5563',
-  className,
-}: SpinnerProps) {
-  const borderWidth = size / 8;
+export function Spinner({ size, color = '#4b5563', className }: SpinnerProps) {
+  const style = {
+    ...(size
+      ? {
+          width: size,
+          height: size,
+          borderWidth: size / 8,
+          borderTopWidth: size / 8,
+        }
+      : {
+          width: '100%',
+          height: '100%',
+          borderWidth: '2px',
+          borderTopWidth: '2px',
+        }),
+    borderTopColor: color,
+  };
 
   return (
     <div
       className={clsx(
-        'inline-block rounded-full animate-spin',
-        'border-2 border-zinc-300',
+        'inline-block rounded-full animate-spin border-zinc-300',
         className,
       )}
-      style={{
-        width: size,
-        height: size,
-        borderWidth,
-        borderTopWidth: borderWidth,
-        borderTopColor: color,
-      }}
+      style={style}
     />
   );
 }
