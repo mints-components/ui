@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-export type ButtonVariant = 'primary' | 'outline';
+export type ButtonVariant = 'primary' | 'outline' | 'link';
 export type ButtonSize = 'sm' | 'default' | 'lg';
 
 export interface ButtonProps
@@ -14,10 +14,10 @@ export interface ButtonProps
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'default',
+  disabled,
   icon,
   className,
   children,
-  disabled,
   ...props
 }) => {
   const base =
@@ -32,6 +32,11 @@ export const Button: React.FC<ButtonProps> = ({
       'border border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white focus:ring-zinc-900',
       disabled &&
         'border-zinc-300 text-zinc-300 hover:bg-transparent hover:text-zinc-300',
+    ),
+    link: clsx(
+      'text-zinc-900 dark:text-zinc-100 underline-offset-4 hover:underline hover:text-zinc-600 dark:hover:text-zinc-300 focus:ring-transparent',
+      disabled &&
+        'text-zinc-400 hover:text-zinc-400 dark:text-zinc-500 dark:hover:text-zinc-500',
     ),
   }[variant];
 

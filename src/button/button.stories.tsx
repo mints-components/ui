@@ -32,34 +32,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Primary',
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    variant: 'outline',
-    children: 'Outline',
-  },
-};
-
-export const Disabled: Story = {
+export const Variant: Story = {
   render: (args) => (
     <div className="space-x-4">
-      <Button {...args} variant="primary" disabled>
-        Primary
-      </Button>
-      <Button {...args} variant="outline" disabled>
+      <Button {...args}>Primary</Button>
+      <Button {...args} variant="outline">
         Outline
+      </Button>
+      <Button {...args} variant="link">
+        Link
       </Button>
     </div>
   ),
-  args: {
-    disabled: true,
-  },
 };
 
 export const Sizes: Story = {
@@ -74,20 +58,40 @@ export const Sizes: Story = {
       </Button>
     </div>
   ),
+};
+
+export const Disabled: Story = {
+  render: (args) => (
+    <div className="space-x-4">
+      <Button {...args} disabled>
+        Primary
+      </Button>
+      <Button {...args} variant="outline" disabled>
+        Outline
+      </Button>
+      <Button {...args} variant="link" disabled>
+        Link
+      </Button>
+    </div>
+  ),
   args: {
-    variant: 'primary',
+    disabled: true,
   },
 };
 
 export const Icon: Story = {
   render: (args) => (
     <div className="space-x-4">
-      <Button {...args} variant="outline" icon={<AiFillNotification />} />
       <Button {...args} icon={<AiFillNotification />} />
+      <Button {...args} variant="outline" icon={<AiFillNotification />} />
+      <Button {...args} variant="link" icon={<AiFillNotification />} />
+      <Button {...args} icon={<AiFillNotification />}>
+        Button
+      </Button>
       <Button {...args} variant="outline" icon={<AiFillNotification />}>
         Button
       </Button>
-      <Button {...args} icon={<AiFillNotification />}>
+      <Button {...args} variant="link" icon={<AiFillNotification />}>
         Button
       </Button>
     </div>
