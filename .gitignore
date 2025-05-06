@@ -25,6 +25,7 @@ dist
 dist-ssr
 types
 *.local
+storybook-static
 
 # Editor directories and files
 .vscode/*
