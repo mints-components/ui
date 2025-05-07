@@ -5,8 +5,15 @@ import { Checkbox } from './checkbox';
 const meta = {
   title: 'Components/Checkbox',
   component: Checkbox,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          "A versatile Checkbox component that supports standard checked and indeterminate states. It is styled to match the Button component's design, with unified focus ring, hover, and disabled styles. Supports labels, accessibility attributes, and server-side rendering (SSR) without relying on client-side effects.",
+      },
+    },
   },
   args: {
     label: 'Label',
@@ -16,16 +23,24 @@ const meta = {
     onChange: (e) => console.log(e.target.checked),
   },
   argTypes: {
-    checked: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    indeterminate: { control: 'boolean' },
+    checked: {
+      control: 'boolean',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+    indeterminate: {
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Basic: Story = {
+  args: {},
+};
 
 export const Checked: Story = {
   args: {
