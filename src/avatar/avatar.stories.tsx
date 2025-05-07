@@ -31,6 +31,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const Basic: Story = {
+  args: {},
+};
+
 export const Size: Story = {
   render: (args) => (
     <div className="space-x-4">
