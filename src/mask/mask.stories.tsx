@@ -36,7 +36,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    opacity: 0.5,
+    open: false,
+    opacity: 0.6,
     zIndex: 1000,
     closable: true,
   },
@@ -48,7 +49,7 @@ export const Basic: Story = {
         <Button onClick={() => setOpen(true)}>Open Mask</Button>
 
         <Mask {...args} open={open} onClose={() => setOpen(false)}>
-          <div className="text-white text-xl">Loading...</div>
+          <div className="text-xl">Loading...</div>
         </Mask>
       </div>
     );
