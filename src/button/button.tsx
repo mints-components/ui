@@ -25,20 +25,22 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center font-medium rounded-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+    'inline-flex items-center justify-center font-medium rounded-md transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variantClass = {
     primary: clsx(
-      'text-white bg-zinc-900 hover:bg-zinc-600 focus:ring-zinc-900',
+      'text-white bg-zinc-900 hover:bg-zinc-600',
+      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900',
       disabled && 'bg-zinc-400 text-white hover:bg-zinc-400',
     ),
     outline: clsx(
-      'border border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white focus:ring-zinc-900',
+      'border border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white',
+      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900',
       disabled &&
         'border-zinc-300 text-zinc-300 hover:bg-transparent hover:text-zinc-300',
     ),
     link: clsx(
-      'text-zinc-900 dark:text-zinc-100 underline-offset-4 hover:underline hover:text-zinc-600 dark:hover:text-zinc-300 focus:ring-transparent',
+      'text-zinc-900 dark:text-zinc-100 underline-offset-4 hover:underline hover:text-zinc-600 dark:hover:text-zinc-300',
       disabled &&
         'text-zinc-400 hover:text-zinc-400 dark:text-zinc-500 dark:hover:text-zinc-500',
     ),
