@@ -5,6 +5,7 @@ export * from './checkbox';
 export * from './divider';
 export * from './dropdown';
 export * from './input';
+export * from './mask';
 export * from './radio';
 export * from './spinner';
 export * from './textarea';
