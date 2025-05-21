@@ -9,8 +9,8 @@ type NativeInputProps = Omit<
 >;
 
 export interface InputProps extends NativeInputProps {
-  label?: string;
-  error?: string;
+  label?: React.ReactNode;
+  error?: React.ReactNode;
   size?: InputSize;
 }
 

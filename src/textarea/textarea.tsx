@@ -10,8 +10,8 @@ type NativeTextAreaProps = Omit<
 >;
 
 export interface TextAreaProps extends NativeTextAreaProps {
-  label?: string;
-  error?: string;
+  label?: React.ReactNode;
+  error?: React.ReactNode;
   size?: TextAreaSize;
   resize?: TextAreaResize;
 }
