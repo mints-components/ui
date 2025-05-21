@@ -37,5 +37,3 @@ storybook-static
 *.njsproj
 *.sln
 *.sw?
-
-.storybook/index.css
