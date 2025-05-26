@@ -1,0 +1,14 @@
+import{j as s}from"./jsx-runtime-9bc08dc0.js";import{c as T}from"./clsx-0839fdbe.js";const n={sm:{box:"w-8 h-8",text:"text-sm"},md:{box:"w-10 h-10",text:"text-base"},lg:{box:"w-16 h-16",text:"text-xl"}};function a({src:e,alt:v,name:r,size:z="md",rounded:y=!0,className:j,...b}){const h=(r==null?void 0:r.charAt(0).toUpperCase())??"?",A=!!e,{box:w,text:N}=n[z]??n.md;return s.jsx("div",{className:T("inline-flex items-center justify-center bg-gray-200 text-gray-600 font-medium overflow-hidden",w,N,y?"rounded-full":"rounded-md",j),...b,children:A?s.jsx("img",{src:e,alt:v||r||"Avatar",className:"w-full h-full object-cover"}):h})}a.__docgenInfo={description:"",methods:[],displayName:"Avatar",props:{src:{required:!1,tsType:{name:"string"},description:""},alt:{required:!1,tsType:{name:"string"},description:""},name:{required:!1,tsType:{name:"string"},description:""},size:{required:!1,tsType:{name:"union",raw:"'sm' | 'md' | 'lg'",elements:[{name:"literal",value:"'sm'"},{name:"literal",value:"'md'"},{name:"literal",value:"'lg'"}]},description:"",defaultValue:{value:"'md'",computed:!1}},rounded:{required:!1,tsType:{name:"boolean"},description:"",defaultValue:{value:"true",computed:!1}}}};const I={title:"Components/Avatar",component:a,tags:["autodocs"],parameters:{layout:"centered",docs:{description:{component:"Avatar is a simple component for displaying user profile pictures or initials. It supports different sizes (`sm`, `md`, `lg`) and allows optional rounding (`rounded=true` by default). If no image is provided, it displays the first letter of the `name` as fallback."}}},args:{name:"Mints",size:"md",rounded:!0},argTypes:{rounded:{control:"boolean"}}},t={args:{}},o={render:e=>s.jsxs("div",{className:"space-x-4",children:[s.jsx(a,{...e,size:"sm"}),s.jsx(a,{...e,size:"md"}),s.jsx(a,{...e,size:"lg"})]})},d={render:e=>s.jsxs("div",{className:"space-x-4",children:[s.jsx(a,{...e,size:"md",rounded:!1}),s.jsx(a,{...e,size:"md",rounded:!0})]})};var i,l,c;t.parameters={...t.parameters,docs:{...(i=t.parameters)==null?void 0:i.docs,source:{originalSource:`{
+  args: {}
+}`,...(c=(l=t.parameters)==null?void 0:l.docs)==null?void 0:c.source}}};var m,u,p;o.parameters={...o.parameters,docs:{...(m=o.parameters)==null?void 0:m.docs,source:{originalSource:`{
+  render: args => <div className="space-x-4">
+      <Avatar {...args} size="sm" />
+      <Avatar {...args} size="md" />
+      <Avatar {...args} size="lg" />
+    </div>
+}`,...(p=(u=o.parameters)==null?void 0:u.docs)==null?void 0:p.source}}};var f,x,g;d.parameters={...d.parameters,docs:{...(f=d.parameters)==null?void 0:f.docs,source:{originalSource:`{
+  render: args => <div className="space-x-4">
+      <Avatar {...args} size="md" rounded={false} />
+      <Avatar {...args} size="md" rounded />
+    </div>
+}`,...(g=(x=d.parameters)==null?void 0:x.docs)==null?void 0:g.source}}};const _=["Basic","Size","Rounded"];export{t as Basic,d as Rounded,o as Size,_ as __namedExportsOrder,I as default};
