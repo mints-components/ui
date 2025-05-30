@@ -3,6 +3,7 @@ export * from './button';
 export * from './callout';
 export * from './card';
 export * from './checkbox';
+export * from './dialog';
 export * from './divider';
 export * from './dropdown';
 export * from './input';
