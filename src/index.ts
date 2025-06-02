@@ -4,6 +4,7 @@ export * from './button';
 export * from './callout';
 export * from './card';
 export * from './checkbox';
+export * from './collapse';
 export * from './dialog';
 export * from './divider';
 export * from './dropdown';
