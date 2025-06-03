@@ -45,7 +45,7 @@ const Paragraph = () => (
   </p>
 );
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {},
   render: (args) => (
     <div className="max-w-2xl">

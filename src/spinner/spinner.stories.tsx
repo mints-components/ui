@@ -29,7 +29,7 @@ const meta: Meta<typeof Spinner> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {};
+export const Default: Story = {};
 
 export const Sizes: Story = {
   render: (args) => (

@@ -34,7 +34,7 @@ const meta: Meta<typeof Mask> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     open: false,
     opacity: 0.6,
