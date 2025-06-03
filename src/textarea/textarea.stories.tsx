@@ -2,13 +2,20 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { TextArea } from './textarea';
 
-const meta = {
+const meta: Meta<typeof TextArea> = {
   title: 'Components/TextArea',
   component: TextArea,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'A flexible TextArea component supporting label, error message, size and resize control. Built with the zinc color palette and styled for both light and dark themes. The label prop supports JSX.',
+      },
+    },
   },
-} satisfies Meta<typeof TextArea>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
