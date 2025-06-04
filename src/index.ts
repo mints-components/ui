@@ -12,5 +12,6 @@ export * from './input';
 export * from './mask';
 export * from './radio';
 export * from './spinner';
+export * from './tabs';
 export * from './textarea';
 export * from './toast';
