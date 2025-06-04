@@ -11,6 +11,7 @@ export * from './dropdown';
 export * from './input';
 export * from './mask';
 export * from './radio';
+export * from './select';
 export * from './spinner';
 export * from './tabs';
 export * from './textarea';
