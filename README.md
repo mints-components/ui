@@ -40,11 +40,27 @@ export default function App() {
 }
 ```
 
+### ⚠️ Tailwind CSS Content Configuration
+
+If you're using **Tailwind CSS v3 or v4**, you need to explicitly include `@mints/ui` in your Tailwind content array so that Tailwind can detect all class names used by the library.
+
+In your `tailwind.config.js` or `tailwind.config.ts`:
+
+```ts
+export default {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@mints/ui/dist/**/*.js', // 👈 Required for Mints UI
+  ],
+  // ... your theme/plugins/etc
+};
+```
+
 ---
 
 ## 📚 Documentation
 
-👉 **[View full Storybook](https://mints-components.github.io/ui/)**
+👉 [**View full Storybook**](https://mints-components.github.io/ui/)
 
 ## 📄 License
 
