@@ -12,6 +12,7 @@ export * from './input';
 export * from './mask';
 export * from './radio';
 export * from './select';
+export * from './skeleton';
 export * from './spinner';
 export * from './tabs';
 export * from './textarea';
