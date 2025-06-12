@@ -30,7 +30,7 @@
     "prettier": "prettier . --write",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "deploy-storybook": "rm -rf storybook-static && stortstorybook build && gh-pages -d storybook-static",
+    "deploy-storybook": "rm -rf storybook-static && storybook build && gh-pages -d storybook-static",
     "prepublish": "yarn build",
     "publish": "yarn npm publish --access public",
     "postinstall": "husky install",
