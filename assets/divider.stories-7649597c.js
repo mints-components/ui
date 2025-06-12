@@ -5,14 +5,14 @@ import{j as e}from"./jsx-runtime-9bc08dc0.js";import{c as i}from"./clsx-0839fdbe
       <Divider {...args} />
       <Paragraph />
     </div>
-}`,...(h=(x=n.parameters)==null?void 0:x.docs)==null?void 0:h.source}}};var v,g,u;t.parameters={...t.parameters,docs:{...(v=t.parameters)==null?void 0:v.docs,source:{originalSource:`{
+}`,...(h=(x=n.parameters)==null?void 0:x.docs)==null?void 0:h.source}}};var v,u,g;t.parameters={...t.parameters,docs:{...(v=t.parameters)==null?void 0:v.docs,source:{originalSource:`{
   args: {},
   render: args => <div className="max-w-2xl">
       <Paragraph />
       <Divider {...args}>Text</Divider>
       <Paragraph />
     </div>
-}`,...(u=(g=t.parameters)==null?void 0:g.docs)==null?void 0:u.source}}};var j,f,w;o.parameters={...o.parameters,docs:{...(j=o.parameters)==null?void 0:j.docs,source:{originalSource:`{
+}`,...(g=(u=t.parameters)==null?void 0:u.docs)==null?void 0:g.source}}};var f,j,D;o.parameters={...o.parameters,docs:{...(f=o.parameters)==null?void 0:f.docs,source:{originalSource:`{
   render: args => <div className="max-w-2xl">
       <Paragraph />
       <Divider {...args}>Solid Divider</Divider>
@@ -22,7 +22,7 @@ import{j as e}from"./jsx-runtime-9bc08dc0.js";import{c as i}from"./clsx-0839fdbe
       </Divider>
       <Paragraph />
     </div>
-}`,...(w=(f=o.parameters)==null?void 0:f.docs)==null?void 0:w.source}}};var D,y,z;d.parameters={...d.parameters,docs:{...(D=d.parameters)==null?void 0:D.docs,source:{originalSource:`{
+}`,...(D=(j=o.parameters)==null?void 0:j.docs)==null?void 0:D.source}}};var w,y,z;d.parameters={...d.parameters,docs:{...(w=d.parameters)==null?void 0:w.docs,source:{originalSource:`{
   args: {
     orientation: 'vertical'
   },
@@ -31,4 +31,4 @@ import{j as e}from"./jsx-runtime-9bc08dc0.js";import{c as i}from"./clsx-0839fdbe
       <Divider {...args} />
       <span>Right</span>
     </div>
-}`,...(z=(y=d.parameters)==null?void 0:y.docs)==null?void 0:z.source}}};const S=["Basic","WithText","Variants","VerticalDivider"];export{n as Basic,o as Variants,d as VerticalDivider,t as WithText,S as __namedExportsOrder,P as default};
+}`,...(z=(y=d.parameters)==null?void 0:y.docs)==null?void 0:z.source}}};const S=["Default","WithText","Variants","VerticalDivider"];export{n as Default,o as Variants,d as VerticalDivider,t as WithText,S as __namedExportsOrder,P as default};
