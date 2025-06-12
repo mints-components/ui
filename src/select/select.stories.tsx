@@ -7,6 +7,7 @@ import { Select } from './select';
 const meta: Meta<typeof Select> = {
   title: 'Components/Select',
   component: Select,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {
@@ -17,15 +18,15 @@ const meta: Meta<typeof Select> = {
     },
   },
   args: {
-    disabled: false,
     size: 'default',
+    disabled: false,
+    placeholder: 'Select a fruit',
     options: [
       { label: 'Apple', value: 'apple' },
       { label: 'Banana', value: 'banana' },
       { label: 'Orange', value: 'orange' },
       { label: 'Disabled', value: 'disabled', disabled: true },
     ],
-    placeholder: 'Select a fruit',
   },
   argTypes: {
     disabled: { control: 'boolean' },
@@ -53,7 +54,7 @@ export const Sizes: Story = {
     const [md, setMd] = useState('');
     const [lg, setLg] = useState('');
     return (
-      <div className="flex gap-4 items-center">
+      <div className="flex flex-wrap gap-4 items-center">
         <Select {...args} size="sm" value={sm} onChange={setSm} />
         <Select {...args} size="default" value={md} onChange={setMd} />
         <Select {...args} size="lg" value={lg} onChange={setLg} />
@@ -63,9 +64,10 @@ export const Sizes: Story = {
 };
 
 export const Disabled: Story = {
+  args: { disabled: true },
   render: (args) => (
-    <div className="flex gap-4">
-      <Select {...args} disabled value="" onChange={() => {}} />
+    <div className="flex flex-wrap gap-4">
+      <Select {...args} value="" onChange={() => {}} />
     </div>
   ),
 };
