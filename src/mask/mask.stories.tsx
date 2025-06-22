@@ -14,14 +14,11 @@ const meta: Meta<typeof Mask> = {
     docs: {
       description: {
         component:
-          'A full-screen mask overlay component that supports customizable opacity, z-index, and a closable button.',
+          'A full-screen mask overlay component with blur and dark mode support. Includes optional close button and configurable z-index.',
       },
     },
   },
   argTypes: {
-    opacity: {
-      control: { type: 'range', min: 0, max: 1, step: 0.1 },
-    },
     zIndex: {
       control: 'number',
     },
@@ -37,7 +34,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     open: false,
-    opacity: 0.6,
     zIndex: 1000,
     closable: true,
   },

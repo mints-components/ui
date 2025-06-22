@@ -5,7 +5,6 @@ import { Button } from '../button';
 
 export interface MaskProps {
   open: boolean;
-  opacity?: number;
   zIndex?: number;
   children?: React.ReactNode;
   closable?: boolean;
@@ -14,7 +13,6 @@ export interface MaskProps {
 
 export function Mask({
   open,
-  opacity = 0.6,
   zIndex = 1000,
   children,
   closable = true,
@@ -22,25 +20,21 @@ export function Mask({
 }: MaskProps) {
   if (!open) return null;
 
-  const safeOpacity = Math.max(0.05, opacity);
-
   return (
     <div
       className={clsx(
         'fixed inset-0 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm',
+        'bg-white/90 dark:bg-zinc-900/90',
         open ? 'opacity-100' : 'opacity-0 pointer-events-none',
       )}
-      style={{
-        backgroundColor: `rgba(255, 255, 255, ${safeOpacity})`,
-        zIndex,
-      }}
+      style={{ zIndex }}
     >
       {closable && (
         <Button
           onClick={onClose}
           size="sm"
           variant="link"
-          className="absolute top-4 right-4"
+          className="absolute top-4 right-4 text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-300"
         >
           ✕
         </Button>
