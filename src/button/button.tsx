@@ -29,18 +29,21 @@ export function Button({
 
   const variantClass = {
     primary: clsx(
-      'text-white bg-zinc-900 hover:bg-zinc-600',
-      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900',
-      disabled && 'bg-zinc-400 text-white hover:bg-zinc-400',
+      'text-white bg-zinc-900 hover:bg-zinc-600 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300',
+      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-100',
+      disabled &&
+        'bg-zinc-400 text-white hover:bg-zinc-400 dark:bg-zinc-500 dark:text-white',
     ),
     outline: clsx(
       'border border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white',
-      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900',
+      'dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900',
+      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-100',
       disabled &&
-        'border-zinc-300 text-zinc-300 hover:bg-transparent hover:text-zinc-300',
+        'border-zinc-300 text-zinc-300 hover:bg-transparent hover:text-zinc-300 dark:border-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-600',
     ),
     link: clsx(
-      'text-zinc-900 dark:text-zinc-100 underline-offset-4 hover:underline hover:text-zinc-600 dark:hover:text-zinc-300',
+      'text-zinc-900 underline-offset-4 hover:underline hover:text-zinc-600',
+      'dark:text-zinc-100 dark:hover:text-zinc-300',
       disabled &&
         'text-zinc-400 hover:text-zinc-400 dark:text-zinc-500 dark:hover:text-zinc-500',
     ),
