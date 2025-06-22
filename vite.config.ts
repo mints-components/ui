@@ -9,7 +9,7 @@ import { dependencies, peerDependencies } from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss(), react(), visualizer({ open: true })],
+  plugins: [tailwindcss(), react(), visualizer()],
 
   build: {
     lib: {
