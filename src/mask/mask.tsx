@@ -24,7 +24,7 @@ export function Mask({
     <div
       className={clsx(
         'fixed inset-0 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm',
-        'bg-white/90 dark:bg-zinc-900/90',
+        'bg-white dark:bg-zinc-900',
         open ? 'opacity-100' : 'opacity-0 pointer-events-none',
       )}
       style={{ zIndex }}
