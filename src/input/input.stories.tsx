@@ -11,7 +11,7 @@ const meta: Meta<typeof Input> = {
     docs: {
       description: {
         component:
-          'A general-purpose Input component supporting label, size variants, and error message display. Styled using the zinc color palette with full dark mode support. Accepts JSX as label.',
+          'A general-purpose Input component supporting label, required, size variants, and error message display. Styled using the zinc color palette with full dark mode support. Accepts JSX as label.',
       },
     },
   },
@@ -42,6 +42,14 @@ export const Label: Story = {
   },
 };
 
+export const Required: Story = {
+  args: {
+    label: 'Required Field',
+    required: true,
+    placeholder: 'This field is required',
+  },
+};
+
 export const WithError: Story = {
   args: {
     label: 'This is a label',
@@ -53,9 +61,14 @@ export const WithError: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <div className="flex flex-col gap-4">
-      <Input {...args} size="sm" placeholder="Small size" />
-      <Input {...args} size="default" placeholder="Default size" />
-      <Input {...args} size="lg" placeholder="Large size" />
+      <Input {...args} size="sm" label="Small" placeholder="Small size" />
+      <Input
+        {...args}
+        size="default"
+        label="Default"
+        placeholder="Default size"
+      />
+      <Input {...args} size="lg" label="Large" placeholder="Large size" />
     </div>
   ),
 };

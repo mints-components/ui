@@ -11,7 +11,7 @@ const meta: Meta<typeof TextArea> = {
     docs: {
       description: {
         component:
-          'A flexible TextArea component supporting label, error message, size and resize control. Built with the zinc color palette and styled for both light and dark themes. The label prop supports JSX.',
+          'A flexible TextArea component supporting label, required, error message, size, and resize control. Built with the zinc color palette and styled for both light and dark themes. The label prop supports JSX.',
       },
     },
   },
@@ -24,6 +24,22 @@ export const Default: Story = {
   args: {
     label: 'Description',
     placeholder: 'Enter your text...',
+  },
+};
+
+export const Required: Story = {
+  args: {
+    label: 'Required Field',
+    required: true,
+    placeholder: 'This field is required',
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    label: 'Description',
+    placeholder: 'This field has an error',
+    error: 'This field is required',
   },
 };
 
@@ -76,10 +92,13 @@ export const Resizes: Story = {
   ),
 };
 
-export const WithError: Story = {
+export const WithCustomLabel: Story = {
   args: {
-    label: 'Description',
-    placeholder: 'This field has an error',
-    error: 'This field is required',
+    label: (
+      <span className="flex items-center gap-1">
+        Description <span className="text-red-500">*</span>
+      </span>
+    ),
+    placeholder: 'With custom label',
   },
 };

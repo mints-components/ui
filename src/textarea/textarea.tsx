@@ -31,18 +31,33 @@ const resizeClass = {
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    { label, error, size = 'default', resize = 'y', className, ...props },
+    {
+      label,
+      error,
+      size = 'default',
+      resize = 'y',
+      required,
+      className,
+      ...props
+    },
     ref,
   ) => {
     return (
       <div className="flex flex-col gap-1">
         {label && (
-          <label className="text-sm font-medium text-zinc-900 dark:text-white">
+          <label className="text-sm font-medium text-zinc-900 dark:text-white flex items-center gap-1">
             {label}
+            {required && (
+              <span className="text-red-500" aria-label="required">
+                *
+              </span>
+            )}
           </label>
         )}
         <textarea
           ref={ref}
+          required={required}
+          aria-required={required}
           className={clsx(
             'border border-zinc-300 bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white dark:border-zinc-700',
             'placeholder:text-zinc-400 dark:placeholder:text-zinc-500',
