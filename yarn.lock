@@ -1171,6 +1171,7 @@ __metadata:
     "@storybook/addon-docs": "npm:^9.0.13"
     "@storybook/addon-links": "npm:^9.0.13"
     "@storybook/addon-onboarding": "npm:^9.0.13"
+    "@storybook/blocks": "npm:^8.6.14"
     "@storybook/react-vite": "npm:^9.0.13"
     "@tailwindcss/cli": "npm:^4.1.4"
     "@tailwindcss/vite": "npm:^4.1.3"
@@ -1623,6 +1624,25 @@ __metadata:
   peerDependencies:
     storybook: ^9.0.13
   checksum: 10/1fd102621baa69d80df792f62d4002a46b54b096f9f13e0f47c7727d1464e657f1d61331da8604d9044611bfdc814748289b354324ea5a96396afb4409d30072
+  languageName: node
+  linkType: hard
+
+"@storybook/blocks@npm:^8.6.14":
+  version: 8.6.14
+  resolution: "@storybook/blocks@npm:8.6.14"
+  dependencies:
+    "@storybook/icons": "npm:^1.2.12"
+    ts-dedent: "npm:^2.0.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    storybook: ^8.6.14
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10/9bf85f9dd40d8eeb0f012d13a7c88d3d828b680f47c86e8472b76edda3127a87e9dbbf4e08cd8478a855558e5e58204479a08102a97ddf7b834850e760ba3f1c
   languageName: node
   linkType: hard
 
