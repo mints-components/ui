@@ -83,7 +83,7 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
   return (
     <div
       className={clsx(
-        'flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg min-w-[220px] max-w-xs text-base font-medium border mb-3 pointer-events-auto',
+        'flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg min-w-[220px] max-w-lg text-base font-medium border mb-3 pointer-events-auto',
         variantClass,
         'transition-all duration-200 ease-in-out',
         show
@@ -106,7 +106,7 @@ function renderToasts() {
   if (!toastRoot) {
     toastRoot = document.createElement('div');
     toastRoot.className =
-      'fixed top-4 left-1/2 z-[9999] -translate-x-1/2 flex flex-col items-center pointer-events-none';
+      'fixed top-6 left-1/2 z-[9999] -translate-x-1/2 flex flex-col items-center pointer-events-none';
     document.body.appendChild(toastRoot);
     reactRoot = createRoot(toastRoot);
   }
