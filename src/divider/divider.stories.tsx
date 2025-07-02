@@ -35,7 +35,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Paragraph = () => (
-  <p>
+  <p className="dark:text-white">
     In today&apos; fast-paced digital world, staying connected and informed is
     more important than ever. Whether through social media, online news, or
     virtual meetings, technology continues to shape the way we communicate and
@@ -87,9 +87,9 @@ export const VerticalDivider: Story = {
   },
   render: (args) => (
     <div>
-      <span>Left</span>
+      <span className="dark:text-white">Left</span>
       <Divider {...args} />
-      <span>Right</span>
+      <span className="dark:text-white">Right</span>
     </div>
   ),
 };
