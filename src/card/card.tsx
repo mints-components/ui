@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import { Divider } from '../divider';
+
 export type CardSize = 'sm' | 'default' | 'lg';
 
 export interface CardProps
@@ -19,8 +21,11 @@ export function Card({
   children,
   ...props
 }: CardProps) {
-  const base =
-    'rounded-lg border border-zinc-200 shadow-sm bg-white dark:bg-zinc-900 dark:border-zinc-800 transition-shadow hover:shadow-md';
+  const base = clsx(
+    'rounded-lg border shadow-sm transition-shadow',
+    'bg-white border-zinc-200 hover:shadow-md',
+    'dark:bg-[#1E1F2A] dark:border-white/10 dark:shadow-[0_4px_24px_0_rgba(0,0,0,0.40)] dark:hover:shadow-[0_0_0_2px_rgba(255,255,255,0.06),0_4px_24px_0_rgba(0,0,0,0.40)]',
+  );
 
   const sizeClass = {
     sm: 'p-4 text-sm',
@@ -39,17 +44,17 @@ export function Card({
     titleSizeClass,
   );
 
-  const dividerClass = 'border-t border-zinc-200 dark:border-zinc-800 my-3';
+  const contentClass = 'text-zinc-800 dark:text-zinc-100';
 
   return (
     <div className={clsx(base, sizeClass, className)} {...props}>
       {title && (
         <>
           <div className={titleClass}>{title}</div>
-          {!minimal && <div className={dividerClass} />}
+          {!minimal && <Divider />}
         </>
       )}
-      <div>{children}</div>
+      <div className={contentClass}>{children}</div>
     </div>
   );
 }
