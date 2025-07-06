@@ -55,11 +55,14 @@ export const Indeterminate: Story = {
 };
 
 export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
   render: (args) => (
     <div className="space-x-4">
-      <Checkbox {...args} label="Default" disabled />
-      <Checkbox {...args} label="Indeterminate" indeterminate disabled />
-      <Checkbox {...args} label="Checked" checked disabled />
+      <Checkbox {...args} label="Default" />
+      <Checkbox {...args} label="Indeterminate" indeterminate />
+      <Checkbox {...args} label="Checked" checked />
     </div>
   ),
 };

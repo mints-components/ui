@@ -33,13 +33,15 @@ export function Checkbox({
           type="checkbox"
           disabled={disabled}
           className={clsx(
-            'peer appearance-none w-full h-full border transition-all rounded',
-            'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900',
+            'peer appearance-none w-full h-full border rounded transition-all',
+            'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-300',
             props.checked || indeterminate
-              ? 'bg-zinc-900 border-zinc-900'
-              : 'bg-white border-zinc-400',
-            !disabled && 'peer-hover:scale-[1.02]',
-            disabled && 'bg-zinc-200 border-zinc-200',
+              ? 'bg-zinc-900 border-zinc-900 dark:bg-white/10 dark:border-white/40'
+              : 'bg-white border-zinc-400 dark:bg-zinc-900 dark:border-zinc-500',
+            !disabled &&
+              'peer-hover:scale-[1.04] peer-hover:shadow peer-hover:border-zinc-700 dark:peer-hover:border-white/60',
+            disabled &&
+              'bg-zinc-200 border-zinc-200 dark:bg-zinc-800 dark:border-zinc-700',
           )}
           {...props}
         />
@@ -64,7 +66,11 @@ export function Checkbox({
         </svg>
       </span>
 
-      {label && <span className="text-sm text-zinc-900">{label}</span>}
+      {label && (
+        <span className="text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
+          {label}
+        </span>
+      )}
     </label>
   );
 }
