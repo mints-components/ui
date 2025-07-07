@@ -10,6 +10,15 @@ const meta: Meta<typeof Callout> = {
   title: 'Components/Callout',
   component: Callout,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'A flexible Callout component for displaying prominent inline messages or alerts. Supports primary, outline, danger, warning, and success variants, as well as icon, size, and closable options. Designed for both light and dark themes.',
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'radio',
