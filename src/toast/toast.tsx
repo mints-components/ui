@@ -15,6 +15,7 @@ interface ToastProps {
 
 function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
   const [show, setShow] = useState(false);
+
   useEffect(() => {
     setShow(true);
     const hide = setTimeout(() => setShow(false), duration);
@@ -26,15 +27,22 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
   }, [duration, k]);
 
   const variantClass = {
-    info: 'bg-zinc-100 text-zinc-900 border-transparent',
-    success: 'bg-green-50 text-green-900 border-green-200',
-    warning: 'bg-yellow-50 text-yellow-900 border-yellow-200',
-    error: 'bg-red-50 text-red-900 border-red-200',
+    info: 'bg-zinc-100 text-zinc-900 border-zinc-200 dark:bg-zinc-900/95 dark:text-zinc-100 dark:border-zinc-700',
+    success:
+      'bg-zinc-100 text-green-600 border-zinc-200 dark:bg-zinc-900/95 dark:text-green-400 dark:border-zinc-700',
+    warning:
+      'bg-zinc-100 text-yellow-700 border-zinc-200 dark:bg-zinc-900/95 dark:text-yellow-300 dark:border-zinc-700',
+    error:
+      'bg-zinc-100 text-red-600 border-zinc-200 dark:bg-zinc-900/95 dark:text-red-400 dark:border-zinc-700',
   }[variant];
 
   const icons: Record<ToastVariant, React.ReactNode> = {
     info: (
-      <svg className="w-5 h-5 text-zinc-500" fill="none" viewBox="0 0 24 24">
+      <svg
+        className="w-5 h-5 text-zinc-400 dark:text-zinc-400"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
         <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
         <path
           stroke="currentColor"
@@ -45,7 +53,11 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
       </svg>
     ),
     success: (
-      <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24">
+      <svg
+        className="w-5 h-5 text-green-500 dark:text-green-400"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
         <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
         <path
           stroke="currentColor"
@@ -57,7 +69,11 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
       </svg>
     ),
     warning: (
-      <svg className="w-5 h-5 text-yellow-500" fill="none" viewBox="0 0 24 24">
+      <svg
+        className="w-5 h-5 text-yellow-500 dark:text-yellow-300"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
         <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
         <path
           stroke="currentColor"
@@ -68,7 +84,11 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
       </svg>
     ),
     error: (
-      <svg className="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24">
+      <svg
+        className="w-5 h-5 text-red-500 dark:text-red-400"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
         <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
         <path
           stroke="currentColor"
@@ -83,9 +103,9 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
   return (
     <div
       className={clsx(
-        'flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg min-w-[220px] max-w-lg text-base font-medium border mb-3 pointer-events-auto',
+        'flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg min-w-[220px] max-w-lg text-base font-medium border mb-3 pointer-events-auto',
         variantClass,
-        'transition-all duration-200 ease-in-out',
+        'transition-all duration-200 ease-in-out leading-relaxed',
         show
           ? 'opacity-100 translate-y-0 scale-100'
           : 'opacity-0 -translate-y-2 scale-95',
