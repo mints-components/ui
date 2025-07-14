@@ -1,9 +1,34 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import React from 'react';
 
 import { Check } from './check';
 import { Close } from './close';
 import { Info } from './info';
+import { Plus } from './plus';
 import { Search } from './search';
+
+const icons = [
+  {
+    component: <Check />,
+    label: 'Check',
+  },
+  {
+    component: <Close />,
+    label: 'Check',
+  },
+  {
+    component: <Info />,
+    label: 'Info',
+  },
+  {
+    component: <Plus />,
+    label: 'Plus',
+  },
+  {
+    component: <Search />,
+    label: 'Search',
+  },
+];
 
 const meta: Meta = {
   title: 'Components/Icons',
@@ -22,22 +47,17 @@ export default meta;
 export const All: StoryObj = {
   render: () => (
     <div className="grid grid-cols-6 gap-10 p-12 bg-white dark:bg-zinc-900 rounded-xl">
-      <div className="flex flex-col items-center">
-        <Check size={32} className="text-zinc-600" />
-        <span className="mt-2 text-xs text-zinc-500">Check</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Close size={32} className="text-zinc-600" />
-        <span className="mt-2 text-xs text-zinc-500">Close</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Info size={32} className="text-zinc-600" />
-        <span className="mt-2 text-xs text-zinc-500">Info</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Search size={32} className="text-zinc-600" />
-        <span className="mt-2 text-xs text-zinc-500">Search</span>
-      </div>
+      {icons.map((i) => (
+        <div key={i.label} className="flex flex-col items-center">
+          {React.cloneElement(i.component, {
+            size: 32,
+            className: 'text-zinc-600 dark:text-white',
+          })}
+          <span className="mt-2 text-xs text-zinc-500 dark:text-white">
+            {i.label}
+          </span>
+        </div>
+      ))}
     </div>
   ),
 };
