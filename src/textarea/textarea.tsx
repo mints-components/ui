@@ -43,7 +43,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ref,
   ) => {
     return (
-      <div className="flex flex-col gap-1">
+      <div className={clsx('flex flex-col gap-1', className)}>
         {label && (
           <label className="text-sm font-medium text-zinc-900 dark:text-white flex items-center gap-1">
             {label}
@@ -64,7 +64,6 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
             'focus:outline focus:outline-zinc-900 focus:border-zinc-900 dark:focus:border-white',
             sizeClass[size],
             resizeClass[resize],
-            className,
           )}
           {...props}
         />

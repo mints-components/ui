@@ -23,7 +23,7 @@ const sizeClass = {
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, size = 'default', className, required, ...props }, ref) => {
     return (
-      <div className="flex flex-col gap-1">
+      <div className={clsx('flex flex-col gap-1', className)}>
         {label && (
           <label className="text-sm font-medium text-zinc-900 dark:text-white flex items-center gap-1">
             {label}
@@ -43,7 +43,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'placeholder:text-zinc-400 dark:placeholder:text-zinc-500',
             'focus:outline focus:outline-zinc-900 focus:border-zinc-900 dark:focus:border-white',
             sizeClass[size],
-            className,
           )}
           {...props}
         />
