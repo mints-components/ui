@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
-import { Check } from './check';
-import { Close } from './close';
-import { Info } from './info';
-import { Plus } from './plus';
-import { Search } from './search';
+import { Check, Close, Info, Plus, Search } from './';
 
 const icons = [
   {
