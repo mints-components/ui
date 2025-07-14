@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Spinner } from '../spinner';
 
-export type ButtonVariant = 'primary' | 'outline' | 'link';
+export type ButtonVariant = 'primary' | 'outline' | 'link' | 'dashed';
 export type ButtonSize = 'sm' | 'default' | 'lg';
 
 export interface ButtonProps
@@ -40,6 +40,13 @@ export function Button({
       'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-100',
       disabled &&
         'border-zinc-300 text-zinc-300 hover:bg-transparent hover:text-zinc-300 dark:border-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-600',
+    ),
+    dashed: clsx(
+      'border border-dashed border-zinc-900 text-zinc-900 hover:bg-zinc-100',
+      'dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-900 dark:hover:text-white',
+      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-100',
+      disabled &&
+        'border-zinc-300 text-zinc-300 dark:border-zinc-600 dark:text-zinc-600',
     ),
     link: clsx(
       'text-zinc-900 underline-offset-4 hover:underline hover:text-zinc-600',
