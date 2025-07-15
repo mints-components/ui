@@ -4,13 +4,14 @@ import React from 'react';
 import {
   Check,
   Close,
-  EllipseGroup,
   Info,
-  Link,
+  Layers,
   Minus,
   Plus,
+  Reset,
   Search,
   Waves,
+  Waypoints,
 } from './';
 
 const icons = [
@@ -20,19 +21,15 @@ const icons = [
   },
   {
     component: <Close />,
-    label: 'Check',
-  },
-  {
-    component: <EllipseGroup />,
-    label: 'EllipseGroup',
+    label: 'Close',
   },
   {
     component: <Info />,
     label: 'Info',
   },
   {
-    component: <Link />,
-    label: 'Link',
+    component: <Layers />,
+    label: 'Layers',
   },
   {
     component: <Minus />,
@@ -43,12 +40,20 @@ const icons = [
     label: 'Plus',
   },
   {
+    component: <Reset />,
+    label: 'Reset',
+  },
+  {
     component: <Search />,
     label: 'Search',
   },
   {
     component: <Waves />,
     label: 'Waves',
+  },
+  {
+    component: <Waypoints />,
+    label: 'Waypoints',
   },
 ];
 
@@ -72,7 +77,7 @@ export const All: StoryObj = {
       {icons.map((i) => (
         <div key={i.label} className="flex flex-col items-center">
           {React.cloneElement(i.component, {
-            size: 32,
+            size: 40,
             className: 'text-zinc-600 dark:text-white',
           })}
           <span className="mt-2 text-xs text-zinc-500 dark:text-white">

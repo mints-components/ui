@@ -1,22 +1,24 @@
 import React from 'react';
 
 export function Minus({
-  size = 20,
+  size = 24,
   ...props
 }: React.SVGProps<SVGSVGElement> & { size?: number }) {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2.2}
+      strokeWidth="2"
       strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
       {...props}
     >
-      <line x1="5" y1="10" x2="15" y2="10" />
+      <path d="M5 12h14" />
     </svg>
   );
 }

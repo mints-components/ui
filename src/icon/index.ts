@@ -1,9 +1,10 @@
 export { Check } from './check';
 export { Close } from './close';
-export { EllipseGroup } from './ellipse-group';
 export { Info } from './info';
-export { Link } from './link';
+export { Layers } from './layers';
 export { Minus } from './minus';
 export { Plus } from './plus';
+export { Reset } from './reset';
 export { Search } from './search';
 export { Waves } from './waves';
+export { Waypoints } from './waypoints';
