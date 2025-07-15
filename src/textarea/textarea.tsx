@@ -14,6 +14,7 @@ export interface TextAreaProps extends NativeTextAreaProps {
   error?: React.ReactNode;
   size?: TextAreaSize;
   resize?: TextAreaResize;
+  textareClassName?: string;
 }
 
 const sizeClass = {
@@ -36,8 +37,9 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       error,
       size = 'default',
       resize = 'y',
-      required,
       className,
+      textareClassName,
+      required,
       ...props
     },
     ref,
@@ -64,6 +66,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
             'focus:outline focus:outline-zinc-900 focus:border-zinc-900 dark:focus:border-white',
             sizeClass[size],
             resizeClass[resize],
+            textareClassName,
           )}
           {...props}
         />

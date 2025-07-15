@@ -12,6 +12,7 @@ export interface InputProps extends NativeInputProps {
   label?: React.ReactNode;
   error?: React.ReactNode;
   size?: InputSize;
+  inputClassName?: string;
 }
 
 const sizeClass = {
@@ -21,7 +22,18 @@ const sizeClass = {
 };
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, size = 'default', className, required, ...props }, ref) => {
+  (
+    {
+      label,
+      error,
+      size = 'default',
+      className,
+      inputClassName,
+      required,
+      ...props
+    },
+    ref,
+  ) => {
     return (
       <div className={clsx('flex flex-col gap-1', className)}>
         {label && (
@@ -43,6 +55,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'placeholder:text-zinc-400 dark:placeholder:text-zinc-500',
             'focus:outline focus:outline-zinc-900 focus:border-zinc-900 dark:focus:border-white',
             sizeClass[size],
+            inputClassName,
           )}
           {...props}
         />

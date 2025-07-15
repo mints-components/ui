@@ -140,12 +140,12 @@ export function AutoComplete({
   ) : (
     <Input
       {...inputControlledProps}
-      className={clsx(
+      inputClassName={clsx(
         'pr-10',
         disabled &&
           'opacity-50 pointer-events-none bg-zinc-100 dark:bg-zinc-800 text-zinc-400',
-        className,
       )}
+      className={className}
     />
   );
 
