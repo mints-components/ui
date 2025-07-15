@@ -1,7 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
-import { Check, Close, Info, Plus, Search } from './';
+import {
+  Check,
+  Close,
+  EllipseGroup,
+  Info,
+  Link,
+  Minus,
+  Plus,
+  Search,
+  Waves,
+} from './';
 
 const icons = [
   {
@@ -13,8 +23,20 @@ const icons = [
     label: 'Check',
   },
   {
+    component: <EllipseGroup />,
+    label: 'EllipseGroup',
+  },
+  {
     component: <Info />,
     label: 'Info',
+  },
+  {
+    component: <Link />,
+    label: 'Link',
+  },
+  {
+    component: <Minus />,
+    label: 'Minus',
   },
   {
     component: <Plus />,
@@ -23,6 +45,10 @@ const icons = [
   {
     component: <Search />,
     label: 'Search',
+  },
+  {
+    component: <Waves />,
+    label: 'Waves',
   },
 ];
 

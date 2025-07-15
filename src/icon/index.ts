@@ -1,5 +1,9 @@
 export { Check } from './check';
 export { Close } from './close';
+export { EllipseGroup } from './ellipse-group';
 export { Info } from './info';
+export { Link } from './link';
+export { Minus } from './minus';
 export { Plus } from './plus';
 export { Search } from './search';
+export { Waves } from './waves';
