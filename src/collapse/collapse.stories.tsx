@@ -18,12 +18,15 @@ const meta: Meta<typeof Collapse> = {
   },
   args: {
     disabled: false,
+    minimal: false,
     header: 'Collapse Header',
+    iconPosition: 'left',
   },
   argTypes: {
     disabled: { control: 'boolean' },
     open: { control: 'boolean' },
     header: { control: 'text' },
+    minimal: { control: 'boolean' }, // 新增控制
     onOpenChange: { action: 'onOpenChange' },
   },
 };
@@ -69,6 +72,57 @@ export const Accordion: Story = {
             {`This is the content of panel ${i}.`}
           </Collapse>
         ))}
+      </div>
+    );
+  },
+};
+
+export const Minimal: Story = {
+  args: {
+    open: false,
+    minimal: true,
+    header: 'Minimal collapse',
+    children: (
+      <span className="dark:text-white">
+        This is minimal styled collapsible content.
+      </span>
+    ),
+  },
+  render: (args) => {
+    const [open, setOpen] = useState(args.open);
+    return (
+      <div className="flex flex-col gap-4">
+        <Collapse {...args} open={open} onOpenChange={setOpen} />
+        <Collapse {...args} disabled />
+      </div>
+    );
+  },
+};
+
+export const IconPosition: Story = {
+  args: {
+    open: false,
+    children: <span className="dark:text-white">This is content.</span>,
+  },
+  render: (args) => {
+    const [open, setOpen] = useState(args.open);
+    return (
+      <div className="flex flex-col gap-4">
+        <Collapse {...args} header="Left" open={open} onOpenChange={setOpen} />
+        <Collapse
+          {...args}
+          header="Right"
+          iconPosition="right"
+          open={open}
+          onOpenChange={setOpen}
+        />
+        <Collapse
+          {...args}
+          header="None"
+          iconPosition="none"
+          open={open}
+          onOpenChange={setOpen}
+        />
       </div>
     );
   },
