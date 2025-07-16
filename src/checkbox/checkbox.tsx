@@ -11,6 +11,7 @@ export function Checkbox({
   indeterminate = false,
   className,
   disabled,
+  children,
   ...props
 }: CheckboxProps) {
   const inputRef = (el: HTMLInputElement | null) => {
@@ -66,9 +67,9 @@ export function Checkbox({
         </svg>
       </span>
 
-      {label && (
+      {(label || children) && (
         <span className="text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
-          {label}
+          {label || children}
         </span>
       )}
     </label>
