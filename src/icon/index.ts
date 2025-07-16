@@ -1,4 +1,8 @@
 export { Check } from './check';
+export { ChevronDown } from './chevron-down';
+export { ChevronLeft } from './chevron-left';
+export { ChevronRight } from './chevron-right';
+export { ChevronUp } from './chevron-up';
 export { Close } from './close';
 export { Info } from './info';
 export { Layers } from './layers';

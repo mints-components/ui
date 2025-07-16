@@ -3,6 +3,10 @@ import React from 'react';
 
 import {
   Check,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
   Close,
   Info,
   Layers,
@@ -18,6 +22,22 @@ const icons = [
   {
     component: <Check />,
     label: 'Check',
+  },
+  {
+    component: <ChevronDown />,
+    label: 'ChevronDown',
+  },
+  {
+    component: <ChevronLeft />,
+    label: 'ChevronLeft',
+  },
+  {
+    component: <ChevronRight />,
+    label: 'ChevronRight',
+  },
+  {
+    component: <ChevronUp />,
+    label: 'ChevronUp',
   },
   {
     component: <Close />,
@@ -77,7 +97,7 @@ export const All: StoryObj = {
       {icons.map((i) => (
         <div key={i.label} className="flex flex-col items-center">
           {React.cloneElement(i.component, {
-            size: 40,
+            size: 32,
             className: 'text-zinc-600 dark:text-white',
           })}
           <span className="mt-2 text-xs text-zinc-500 dark:text-white">
