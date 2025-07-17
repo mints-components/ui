@@ -9,7 +9,7 @@ export * from './collapse';
 export * from './dialog';
 export * from './divider';
 export * from './dropdown';
-export * from './icon';
+export * from './icons';
 export * from './input';
 export * from './mask';
 export * from './radio';

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React, { useRef, useState, useEffect } from 'react';
 
 import { Button } from '../button';
-import { Close } from '../icon';
+import { Close } from '../icons';
 import { Input, InputProps } from '../input';
 import { Spinner } from '../spinner';
 

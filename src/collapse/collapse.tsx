@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { ChevronRight, ChevronDown } from '../icon';
+import { ChevronRight, ChevronDown } from '../icons';
 
 export interface CollapseProps extends React.HTMLAttributes<HTMLDivElement> {
   open: boolean;
