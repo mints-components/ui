@@ -101,7 +101,7 @@ export function Collapse({
         id="collapse-content"
         className={clsx(
           'overflow-hidden transition-all duration-200 ease-in-out',
-          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
+          open ? 'max-h-[9999px] opacity-100' : 'max-h-0 opacity-0',
         )}
         aria-hidden={!open}
       >
