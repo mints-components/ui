@@ -43,7 +43,9 @@ export const Default: Story = {
           title="Default Dialog"
           footer={<Button onClick={() => setOpen(false)}>Close</Button>}
         >
-          This is a basic dialog. The content area supports any React nodes.
+          <p className="dark:text-white">
+            This is a basic dialog. The content area supports any React nodes.
+          </p>
         </Dialog>
       </>
     );
@@ -77,13 +79,13 @@ export const FormDialog: Story = {
               <label className="block mb-1 text-sm text-zinc-700 dark:text-zinc-200">
                 Username
               </label>
-              <input className="w-full border border-zinc-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-900" />
+              <input className="w-full border border-zinc-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:text-white" />
             </div>
             <div>
               <label className="block mb-1 text-sm text-zinc-700 dark:text-zinc-200">
                 Email
               </label>
-              <input className="w-full border border-zinc-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-900" />
+              <input className="w-full border border-zinc-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:text-white" />
             </div>
           </form>
         </Dialog>

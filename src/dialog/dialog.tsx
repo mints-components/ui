@@ -4,6 +4,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Button } from '../button';
+import { Close } from '../icons';
+
 export interface DialogProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   open: boolean;
@@ -61,15 +63,13 @@ export function Dialog({
           >
             {showClose && (
               <Button
-                size="lg"
+                icon={<Close />}
                 variant="link"
                 onClick={onClose}
                 aria-label="Close"
                 className="absolute right-4 top-4"
                 type="button"
-              >
-                ×
-              </Button>
+              />
             )}
             {title && (
               <div className="mb-4">
