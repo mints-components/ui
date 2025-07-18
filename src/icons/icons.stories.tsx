@@ -7,6 +7,9 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronUp,
+  CircleAlert,
+  CircleCheck,
+  CircleClose,
   Close,
   Info,
   Layers,
@@ -38,6 +41,18 @@ const icons = [
   {
     component: <ChevronUp />,
     label: 'ChevronUp',
+  },
+  {
+    component: <CircleAlert />,
+    label: 'CircleAlert',
+  },
+  {
+    component: <CircleCheck />,
+    label: 'CircleCheck',
+  },
+  {
+    component: <CircleClose />,
+    label: 'CircleClose',
   },
   {
     component: <Close />,
