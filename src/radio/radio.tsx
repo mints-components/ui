@@ -57,23 +57,27 @@ export function Radio({
         />
         <span
           className={clsx(
-            'rounded-full border border-zinc-400 flex items-center justify-center transition-colors',
+            'rounded-full border flex items-center justify-center transition-colors',
             sizeClass.wrapper,
+            'border-zinc-400 dark:border-zinc-600',
             disabled ? 'cursor-not-allowed' : 'cursor-pointer',
             'peer-checked:border-zinc-900 peer-checked:bg-zinc-900',
+            'dark:peer-checked:border-zinc-100 dark:peer-checked:bg-zinc-100',
             'peer-checked:disabled:border-zinc-400 peer-checked:disabled:bg-zinc-400',
-            'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-zinc-900',
+            'dark:peer-checked:disabled:border-zinc-600 dark:peer-checked:disabled:bg-zinc-700',
+            'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-zinc-900 dark:peer-focus-visible:outline-zinc-100',
           )}
         >
           <span
             className={clsx(
-              'rounded-full bg-white peer-checked:bg-white',
+              'rounded-full',
               sizeClass.inner,
+              'bg-white peer-checked:bg-white dark:bg-zinc-900 dark:peer-checked:bg-zinc-900',
             )}
           />
         </span>
       </span>
-      {children && <span>{children}</span>}
+      {children && <span className="dark:text-zinc-100">{children}</span>}
     </label>
   );
 }
