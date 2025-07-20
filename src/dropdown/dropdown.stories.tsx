@@ -44,7 +44,9 @@ export const Default: Story = {
 export const WithTextTrigger: Story = {
   args: {
     children: (
-      <span className="cursor-pointer text-sm font-medium">Hover me</span>
+      <span className="cursor-pointer text-sm font-medium dark:text-white">
+        Hover me
+      </span>
     ),
   },
 };
