@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import { useArgs } from 'storybook/preview-api';
 
 import { Button } from '../button';
 
@@ -14,16 +14,25 @@ const meta: Meta<typeof Mask> = {
     docs: {
       description: {
         component:
-          'A full-screen mask overlay component with blur and dark mode support. Includes optional close button and configurable z-index.',
+          'A full-screen mask overlay component with blur and dark mode support. Includes optional close button, configurable opacity, and z-index.',
       },
     },
   },
   argTypes: {
+    opacity: {
+      control: { type: 'range', min: 50, max: 100, step: 5 },
+      defaultValue: 100,
+      description: 'Tailwind opacity value, 0~100.',
+    },
     zIndex: {
-      control: 'number',
+      control: { type: 'number' },
+      defaultValue: 1000,
+      description: 'z-index of the mask overlay.',
     },
     closable: {
-      control: 'boolean',
+      control: { type: 'boolean' },
+      defaultValue: true,
+      description: 'Show close button',
     },
   },
 };
@@ -34,18 +43,18 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     open: false,
+    opacity: 100,
     zIndex: 1000,
     closable: true,
   },
   render: (args) => {
-    const [open, setOpen] = useState(false);
+    const [{ open }, updateArgs] = useArgs();
 
     return (
       <div className="p-8 space-y-4">
-        <Button onClick={() => setOpen(true)}>Open Mask</Button>
-
-        <Mask {...args} open={open} onClose={() => setOpen(false)}>
-          <div className="text-xl">Loading...</div>
+        <Button onClick={() => updateArgs({ open: true })}>Open Mask</Button>
+        <Mask {...args} open={open} onClose={() => updateArgs({ open: false })}>
+          <div className="text-xl dark:text-white">Loading...</div>
         </Mask>
       </div>
     );

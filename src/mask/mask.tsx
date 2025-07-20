@@ -1,10 +1,13 @@
 import clsx from 'clsx';
 import React from 'react';
+import { createPortal } from 'react-dom';
 
 import { Button } from '../button';
+import { Close } from '../icons';
 
 export interface MaskProps {
   open: boolean;
+  opacity?: number;
   zIndex?: number;
   children?: React.ReactNode;
   closable?: boolean;
@@ -13,33 +16,34 @@ export interface MaskProps {
 
 export function Mask({
   open,
+  opacity = 100,
   zIndex = 1000,
   children,
   closable = true,
   onClose,
 }: MaskProps) {
-  if (!open) return null;
+  if (!open || typeof window === 'undefined') return null;
 
-  return (
+  return createPortal(
     <div
       className={clsx(
         'fixed inset-0 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm',
         'bg-white dark:bg-zinc-900',
         open ? 'opacity-100' : 'opacity-0 pointer-events-none',
       )}
-      style={{ zIndex }}
+      style={{ zIndex, opacity: open ? opacity / 100 : 0 }}
     >
       {closable && (
         <Button
+          icon={<Close />}
           onClick={onClose}
           size="sm"
           variant="link"
-          className="absolute top-4 right-4 text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-300"
-        >
-          ✕
-        </Button>
+          className="absolute top-4 right-4"
+        />
       )}
       {children}
-    </div>
+    </div>,
+    document.body,
   );
 }
