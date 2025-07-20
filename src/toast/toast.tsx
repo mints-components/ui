@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import type { Root } from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
 
+import { Info, CircleCheck, CircleAlert, CircleClose } from '../icons';
+
 type ToastVariant = 'info' | 'success' | 'warning' | 'error';
 
 interface ToastProps {
@@ -37,67 +39,10 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
   }[variant];
 
   const icons: Record<ToastVariant, React.ReactNode> = {
-    info: (
-      <svg
-        className="w-5 h-5 text-zinc-400 dark:text-zinc-400"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
-        <path
-          stroke="currentColor"
-          strokeWidth="2"
-          d="M12 8v4m0 4h.01"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-    success: (
-      <svg
-        className="w-5 h-5 text-green-500 dark:text-green-400"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
-        <path
-          stroke="currentColor"
-          strokeWidth="2"
-          d="M9 12l2 2 4-4"
-          strokeLinecap="round"
-          fill="none"
-        />
-      </svg>
-    ),
-    warning: (
-      <svg
-        className="w-5 h-5 text-yellow-500 dark:text-yellow-300"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
-        <path
-          stroke="currentColor"
-          strokeWidth="2"
-          d="M12 8v4m0 4h.01"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-    error: (
-      <svg
-        className="w-5 h-5 text-red-500 dark:text-red-400"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".1" />
-        <path
-          stroke="currentColor"
-          strokeWidth="2"
-          d="M15 9l-6 6m0-6l6 6"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    info: <Info />,
+    success: <CircleCheck />,
+    warning: <CircleAlert />,
+    error: <CircleClose />,
   };
 
   return (
