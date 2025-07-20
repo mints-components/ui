@@ -19,7 +19,8 @@ export function Skeleton({
   return (
     <div
       className={clsx(
-        'relative overflow-hidden bg-zinc-200/80',
+        'relative overflow-hidden',
+        'bg-zinc-200/80 dark:bg-zinc-600/80',
         {
           'rounded-sm': rounded === 'sm',
           'rounded-md': rounded === 'md',
