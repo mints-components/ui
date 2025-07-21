@@ -48,7 +48,7 @@ function Toast({ message, variant, icon, duration = 3000, k }: ToastProps) {
   return (
     <div
       className={clsx(
-        'flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg min-w-[220px] max-w-lg text-base font-medium border mb-3 pointer-events-auto',
+        'flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg text-base font-medium border mb-3 pointer-events-auto',
         variantClass,
         'transition-all duration-200 ease-in-out leading-relaxed',
         show
