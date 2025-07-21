@@ -38,9 +38,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => (
     <Tooltip {...args}>
-      <span className="inline-block text-base font-medium cursor-pointer">
-        Hover me
-      </span>
+      <span>Hover me</span>
     </Tooltip>
   ),
 };
@@ -49,16 +47,16 @@ export const Placement: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-8 items-center justify-center">
       <Tooltip {...args} placement="top">
-        <span className="inline-block cursor-pointer">Top</span>
+        <span>Top</span>
       </Tooltip>
       <Tooltip {...args} placement="right">
-        <span className="inline-block cursor-pointer">Right</span>
+        <span>Right</span>
       </Tooltip>
       <Tooltip {...args} placement="bottom">
-        <span className="inline-block cursor-pointer">Bottom</span>
+        <span>Bottom</span>
       </Tooltip>
       <Tooltip {...args} placement="left">
-        <span className="inline-block cursor-pointer">Left</span>
+        <span>Left</span>
       </Tooltip>
     </div>
   ),
@@ -67,9 +65,7 @@ export const Placement: Story = {
 export const Delay: Story = {
   render: (args) => (
     <Tooltip {...args} delay={500}>
-      <span className="inline-block cursor-pointer">
-        Hover me (500ms delay)
-      </span>
+      <span>Hover me (500ms delay)</span>
     </Tooltip>
   ),
 };
@@ -78,9 +74,7 @@ export const Disabled: Story = {
   args: { disabled: true },
   render: (args) => (
     <Tooltip {...args}>
-      <span className="inline-block cursor-not-allowed text-zinc-400">
-        Disabled Tooltip
-      </span>
+      <span>Disabled Tooltip</span>
     </Tooltip>
   ),
 };
@@ -90,14 +84,14 @@ export const RichContent: Story = {
     <Tooltip
       {...args}
       content={
-        <span>
+        <div>
           <span className="font-semibold">Title</span>
           <br />
-          <span>Additional details</span>
-        </span>
+          <span className="text-red-400">Additional details</span>
+        </div>
       }
     >
-      <span className="inline-block cursor-pointer">Rich content</span>
+      <span>Rich content</span>
     </Tooltip>
   ),
 };

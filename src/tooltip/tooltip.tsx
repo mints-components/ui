@@ -32,7 +32,19 @@ export function Tooltip({
     setVisible(false);
   };
 
-  const tooltipBg = '#3f3f46'; // zinc-700
+  const bgClass = 'bg-zinc-700 dark:bg-zinc-500 text-white';
+  const arrowLight = '#3f3f46';
+  const arrowDark = '#71717b';
+
+  const getArrowColor = () => {
+    if (
+      typeof window !== 'undefined' &&
+      document.documentElement.classList.contains('dark')
+    ) {
+      return arrowDark;
+    }
+    return arrowLight;
+  };
 
   const getPositionClass = () => {
     switch (placement) {
@@ -50,6 +62,7 @@ export function Tooltip({
   };
 
   const Arrow = () => {
+    const color = getArrowColor();
     if (placement === 'top') {
       return (
         <span
@@ -59,7 +72,7 @@ export function Tooltip({
             height: 0,
             borderLeft: '6px solid transparent',
             borderRight: '6px solid transparent',
-            borderTop: `6px solid ${tooltipBg}`,
+            borderTop: `6px solid ${color}`,
           }}
         />
       );
@@ -73,7 +86,7 @@ export function Tooltip({
             height: 0,
             borderLeft: '6px solid transparent',
             borderRight: '6px solid transparent',
-            borderBottom: `6px solid ${tooltipBg}`,
+            borderBottom: `6px solid ${color}`,
           }}
         />
       );
@@ -87,7 +100,7 @@ export function Tooltip({
             height: 0,
             borderTop: '6px solid transparent',
             borderBottom: '6px solid transparent',
-            borderLeft: `6px solid ${tooltipBg}`,
+            borderLeft: `6px solid ${color}`,
           }}
         />
       );
@@ -101,7 +114,7 @@ export function Tooltip({
             height: 0,
             borderTop: '6px solid transparent',
             borderBottom: '6px solid transparent',
-            borderRight: `6px solid ${tooltipBg}`,
+            borderRight: `6px solid ${color}`,
           }}
         />
       );
@@ -127,6 +140,12 @@ export function Tooltip({
       hide();
     },
     tabIndex: children.props.tabIndex ?? 0,
+    className: clsx(
+      children.props.className,
+      disabled
+        ? 'text-zinc-400 dark:text-zinc-600 opacity-80 cursor-not-allowed select-none'
+        : 'dark:text-white transition-colors hover:text-zinc-900 dark:hover:text-zinc-100 cursor-pointer',
+    ),
   });
 
   return (
@@ -138,7 +157,8 @@ export function Tooltip({
       {visible && (
         <span
           className={clsx(
-            'absolute px-3 py-2 min-w-max rounded-md text-sm text-white shadow-lg z-50 bg-zinc-700 pointer-events-none transition-opacity duration-150',
+            'absolute px-3 py-2 min-w-max rounded-md text-sm shadow-lg z-50 pointer-events-none transition-opacity duration-150',
+            bgClass,
             visible ? 'opacity-100' : 'opacity-0',
             getPositionClass(),
             className,
