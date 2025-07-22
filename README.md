@@ -10,22 +10,8 @@ A minimalist React component library based on **Tailwind CSS**.
 
 ## 📦 Installation
 
-Using **npm**:
-
 ```bash
 npm install @mints/ui
-```
-
-Or with **yarn**:
-
-```bash
-yarn add @mints/ui
-```
-
-Or with **pnpm**:
-
-```bash
-pnpm add @mints/ui
 ```
 
 ## 🚀 Quick Start
@@ -44,6 +30,8 @@ export default function App() {
 
 If you're using **Tailwind CSS v3 or v4**, you need to explicitly include `@mints/ui` in your Tailwind content array so that Tailwind can detect all class names used by the library.
 
+#### Tailwind CSS v3
+
 In your `tailwind.config.js` or `tailwind.config.ts`:
 
 ```ts
@@ -56,7 +44,29 @@ export default {
 };
 ```
 
----
+#### Tailwind CSS v4
+
+Tailwind CSS v4 introduced the `@config` directive for content-aware builds.
+If you're using **Tailwind v4 with a CSS entry file (like `main.css`)**, make sure to declare your config path at the top of the file:
+
+```css
+@config "../tailwind.config.js";
+```
+
+Without this, Tailwind won’t be able to access your configuration and may purge styles used in `@mints/ui`.
+
+Also confirm your `tailwind.config.js` includes the following:
+
+```ts
+export default {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@mints/ui/dist/**/*.js', // 👈 Required for Mints UI
+  ],
+};
+```
+
+This ensures Tailwind correctly processes class names inside third-party packages like `@mints/ui`.
 
 ## 📚 Documentation
 
