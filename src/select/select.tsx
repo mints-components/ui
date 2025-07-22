@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React, { useRef, useEffect, useState } from 'react';
 
 import { Button, ButtonProps } from '../button';
+import { ChevronDown } from '../icons';
 
 export type SelectSize = ButtonProps['size'];
 
@@ -62,11 +63,13 @@ export function Select({
         size={size}
         icon={icon}
         className={clsx(
-          'w-full justify-between font-medium',
+          'w-full justify-between font-medium transition-colors',
           open
             ? 'border-zinc-900 bg-zinc-50 dark:bg-zinc-800'
             : 'border-zinc-300 bg-white dark:bg-zinc-900',
           !selectedOption && 'text-zinc-400',
+          disabled &&
+            'bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-300 dark:text-zinc-500 cursor-not-allowed opacity-60',
         )}
         style={!selectedOption ? { fontWeight: 400 } : undefined}
         disabled={disabled}
@@ -78,31 +81,19 @@ export function Select({
           className={clsx(
             'truncate flex-1 text-left',
             !selectedOption && 'text-zinc-400',
+            disabled && 'text-zinc-300 dark:text-zinc-500',
           )}
         >
           {selectedOption ? selectedOption.label : placeholder}
         </span>
-        <span
-          className={clsx(
-            'ml-2 w-4 h-4 flex items-center',
-            !selectedOption ? 'text-zinc-400' : 'text-zinc-500',
-          )}
-        >
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-            <path
-              d="M5 8L10 13L15 8"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
+        <ChevronDown size={20} />
       </Button>
-      {open && (
+      {open && !disabled && (
         <ul
           className={clsx(
-            'absolute z-10 mt-1 w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-lg rounded-md max-h-60 overflow-auto animate-fade-in',
+            'absolute z-10 mt-1 w-full border shadow-lg rounded-md max-h-60 overflow-auto animate-fade-in',
+            'bg-white dark:bg-zinc-800',
+            'border-zinc-200 dark:border-zinc-700',
           )}
           role="listbox"
         >
@@ -110,12 +101,12 @@ export function Select({
             <li
               key={option.value}
               className={clsx(
-                'px-4 py-2 cursor-pointer select-none',
+                'px-4 py-2 select-none',
                 option.disabled
-                  ? 'opacity-40 cursor-not-allowed'
-                  : 'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                  ? 'text-zinc-300 dark:text-zinc-600 bg-transparent cursor-not-allowed'
+                  : 'cursor-pointer dark:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-700',
                 option.value === value &&
-                  'bg-zinc-100 dark:bg-zinc-800 font-medium',
+                  'bg-zinc-100 dark:bg-zinc-700 font-medium',
               )}
               onClick={() => handleSelect(option.value, option)}
               aria-selected={option.value === value}

@@ -92,9 +92,9 @@ export const Controlled: Story = {
     return (
       <div className="flex flex-col gap-4 items-start">
         <Select {...args} value={value} onChange={setValue} />
-        <div>
+        <p className="dark:text-white">
           Selected value: <b>{value || 'None'}</b>
-        </div>
+        </p>
       </div>
     );
   },
