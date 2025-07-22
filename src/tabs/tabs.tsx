@@ -31,7 +31,7 @@ function Tabs({
     <div className={clsx('w-full', className)}>
       <div
         className={clsx(
-          'flex border-b border-zinc-200',
+          'flex border-b border-zinc-200 dark:border-zinc-700',
           centered ? 'justify-center' : 'justify-start',
         )}
         role="tablist"
@@ -49,8 +49,8 @@ function Tabs({
               className={clsx(
                 'relative px-3 py-2 select-none transition-colors outline-none text-base',
                 isActive
-                  ? 'font-bold text-zinc-900'
-                  : 'font-medium text-zinc-500 hover:text-zinc-900',
+                  ? 'font-bold text-zinc-900 dark:text-zinc-100'
+                  : 'font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100',
                 isDisabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
               )}
               onClick={() => {
@@ -68,7 +68,7 @@ function Tabs({
                 className={clsx(
                   'absolute left-1/2 -translate-x-1/2 -bottom-px rounded-full transition-all duration-200',
                   isActive
-                    ? 'w-2/3 h-0.5 bg-zinc-600'
+                    ? 'w-2/3 h-0.5 bg-zinc-600 dark:bg-zinc-100'
                     : 'w-0 h-0 bg-transparent',
                 )}
               />

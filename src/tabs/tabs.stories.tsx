@@ -35,13 +35,15 @@ export const Default: Story = {
     return (
       <Tabs {...args} value={tab} onChange={setTab}>
         <Tabs.Item value="profile" label="Profile">
-          <p>This is the profile panel.</p>
+          <p className="dark:text-white">This is the profile panel.</p>
         </Tabs.Item>
         <Tabs.Item value="settings" label="Settings">
-          <p>Settings and preferences go here.</p>
+          <p className="dark:text-white">Settings and preferences go here.</p>
         </Tabs.Item>
         <Tabs.Item value="security" label="Security">
-          <p>Change your password and manage security settings.</p>
+          <p className="dark:text-white">
+            Change your password and manage security settings.
+          </p>
         </Tabs.Item>
       </Tabs>
     );
@@ -54,13 +56,15 @@ export const DisabledTab: Story = {
     return (
       <Tabs {...args} value={tab} onChange={setTab}>
         <Tabs.Item value="active" label="Active">
-          <div>This is the active tab.</div>
+          <p className="dark:text-white">This is the active tab.</p>
         </Tabs.Item>
         <Tabs.Item value="disabled" label="Disabled" disabled>
-          <div>This tab is disabled and cannot be selected.</div>
+          <p className="dark:text-white">
+            This tab is disabled and cannot be selected.
+          </p>
         </Tabs.Item>
         <Tabs.Item value="another" label="Another">
-          <div>Another tab content.</div>
+          <p className="dark:text-white">Another tab content.</p>
         </Tabs.Item>
       </Tabs>
     );
@@ -83,7 +87,7 @@ export const ComplexLabel: Story = {
             </span>
           }
         >
-          <div>User tab with icon in label.</div>
+          <p className="dark:text-white">User tab with icon in label.</p>
         </Tabs.Item>
         <Tabs.Item
           value="tab2"
@@ -96,10 +100,10 @@ export const ComplexLabel: Story = {
             </span>
           }
         >
-          <div>Settings tab with icon in label.</div>
+          <p className="dark:text-white">Settings tab with icon in label.</p>
         </Tabs.Item>
         <Tabs.Item value="tab3" label="Plain Label">
-          <div>Plain label tab.</div>
+          <p className="dark:text-white">Plain label tab.</p>
         </Tabs.Item>
       </Tabs>
     );
