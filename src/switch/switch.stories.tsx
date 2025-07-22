@@ -52,15 +52,15 @@ export const Sizes: Story = {
       <div className="flex flex-wrap gap-6 items-center">
         <div className="flex flex-col items-center gap-2">
           <Switch {...args} size="sm" checked={sm} onChange={setSm} />
-          <span>Small</span>
+          <span className="dark:text-white">Small</span>
         </div>
         <div className="flex flex-col items-center gap-2">
           <Switch {...args} size="default" checked={md} onChange={setMd} />
-          <span>Default</span>
+          <span className="dark:text-white">Default</span>
         </div>
         <div className="flex flex-col items-center gap-2">
           <Switch {...args} size="lg" checked={lg} onChange={setLg} />
-          <span>Large</span>
+          <span className="dark:text-white">Large</span>
         </div>
       </div>
     );
@@ -73,7 +73,7 @@ export const Controlled: Story = {
     return (
       <div className="flex flex-col gap-4 items-center">
         <Switch {...args} checked={on} onChange={setOn} />
-        <span>{on ? 'On' : 'Off'}</span>
+        <span className="dark:text-white">{on ? 'On' : 'Off'}</span>
       </div>
     );
   },

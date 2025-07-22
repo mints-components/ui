@@ -53,7 +53,9 @@ export function Switch({
       className={clsx(
         'inline-flex items-center rounded-full transition-colors duration-200 focus:outline-none',
         style.track,
-        checked ? 'bg-zinc-900' : 'bg-zinc-300 dark:bg-zinc-700',
+        checked
+          ? 'bg-zinc-900 dark:bg-zinc-600'
+          : 'bg-zinc-300 dark:bg-zinc-400',
         disabled
           ? 'opacity-50 cursor-not-allowed'
           : 'cursor-pointer focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2',
