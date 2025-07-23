@@ -1,13 +1,22 @@
 {
   "name": "@mints/ui",
   "packageManager": "yarn@4.7.0",
-  "version": "1.0.0-alpha.24",
+  "version": "1.0.0",
+  "description": "A modern React UI component library built with Tailwind CSS",
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "ui",
+    "component-library",
+    "design-system"
+  ],
   "type": "module",
   "files": [
     "dist",
-    "types"
+    "types",
+    "CHANGELOG.md"
   ],
-  "types": "types",
+  "types": "types/index.d.ts",
   "main": "./dist/mints-ui.umd.cjs",
   "module": "./dist/mints-ui.js",
   "exports": {
@@ -22,6 +31,10 @@
       }
     },
     "./style.css": "./dist/mints-ui.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mintsuite/mints-ui.git"
   },
   "scripts": {
     "clean": "rm -rf dist && rm -rf types",
