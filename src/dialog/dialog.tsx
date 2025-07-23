@@ -49,7 +49,7 @@ export function Dialog({
           />
           <motion.div
             className={clsx(
-              'relative bg-white dark:bg-zinc-900 rounded-xl shadow-xl w-full max-w-lg mx-2 p-6',
+              'relative bg-white dark:bg-zinc-900 rounded-xl shadow-xl max-w-3/4 min-w-lg mx-2 p-6',
               className,
             )}
             initial={{ opacity: 0, y: 24 }}
@@ -67,7 +67,7 @@ export function Dialog({
                 variant="link"
                 onClick={onClose}
                 aria-label="Close"
-                className="absolute right-4 top-4"
+                className="absolute right-2 top-2"
                 type="button"
               />
             )}
