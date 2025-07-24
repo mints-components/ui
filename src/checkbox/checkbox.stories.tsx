@@ -42,6 +42,22 @@ export const Default: Story = {
   args: {},
 };
 
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex flex-col gap-4 items-start">
+      <Checkbox {...args} size="sm">
+        Small
+      </Checkbox>
+      <Checkbox {...args} size="default">
+        Default
+      </Checkbox>
+      <Checkbox {...args} size="lg">
+        Large
+      </Checkbox>
+    </div>
+  ),
+};
+
 export const Checked: Story = {
   args: {
     checked: true,
