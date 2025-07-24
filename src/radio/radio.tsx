@@ -8,20 +8,21 @@ export interface RadioProps
     React.InputHTMLAttributes<HTMLInputElement>,
     'type' | 'children' | 'size'
   > {
+  label?: React.ReactNode;
   size?: RadioSize;
   children?: React.ReactNode;
 }
 
 export function Radio({
-  children,
+  label,
   size = 'default',
   className,
   disabled,
   checked,
+  children,
   ...props
 }: RadioProps) {
   const id = useId();
-
   const sizeClass = {
     sm: {
       wrapper: 'h-3.5 w-3.5',
@@ -41,8 +42,8 @@ export function Radio({
     <label
       htmlFor={id}
       className={clsx(
-        'inline-flex items-center gap-2 select-none',
-        disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
+        'inline-flex items-center gap-1 cursor-pointer select-none',
+        disabled && 'opacity-50 cursor-not-allowed',
         className,
       )}
     >
@@ -77,7 +78,11 @@ export function Radio({
           />
         </span>
       </span>
-      {children && <span className="dark:text-zinc-100">{children}</span>}
+      {(label || children) && (
+        <span className="text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
+          {label || children}
+        </span>
+      )}
     </label>
   );
 }
