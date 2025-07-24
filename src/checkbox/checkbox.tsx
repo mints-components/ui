@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useId } from 'react';
 
 export type CheckboxSize = 'sm' | 'default' | 'lg';
 
@@ -20,6 +20,7 @@ export function Checkbox({
   children,
   ...props
 }: CheckboxProps) {
+  const id = useId();
   const sizeClass = {
     sm: {
       wrapper: 'h-3.5 w-3.5 text-[13px]',
@@ -44,6 +45,7 @@ export function Checkbox({
 
   return (
     <label
+      htmlFor={id}
       className={clsx(
         'inline-flex items-center gap-1 cursor-pointer select-none',
         disabled && 'opacity-50 cursor-not-allowed',
@@ -52,6 +54,7 @@ export function Checkbox({
     >
       <span className="relative flex items-center justify-center">
         <input
+          id={id}
           ref={inputRef}
           type="checkbox"
           className="peer sr-only"
