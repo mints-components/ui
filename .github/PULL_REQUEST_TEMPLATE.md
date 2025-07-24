@@ -2,11 +2,15 @@
 
 <!-- Describe what this PR changes, adds, or fixes -->
 
-- [ ] Bugfix
-- [ ] New Component
-- [ ] Refactor / Style polish
-- [ ] Docs update
-- [ ] Other (please describe)
+Change type:
+
+- 🐛 Bugfix
+- ✨ New Component
+- 🎨 Refactor / Style polish
+- 📝 Docs update
+- 📦 Other (please describe below)
+
+---
 
 ## 🧪 Test Plan
 
