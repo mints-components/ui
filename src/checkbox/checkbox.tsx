@@ -4,10 +4,14 @@ import React, { useId } from 'react';
 export type CheckboxSize = 'sm' | 'default' | 'lg';
 
 export interface CheckboxProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'size' | 'children'
+  > {
   label?: React.ReactNode;
   size?: CheckboxSize;
   indeterminate?: boolean;
+  children?: React.ReactNode;
 }
 
 export function Checkbox({
