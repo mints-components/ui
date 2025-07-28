@@ -29,12 +29,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Setup Git Identity
+      - name: Configure Git identity
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Set auth for gh-pages
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mints-components/ui.git
+
       - name: Deploy Storybook
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn deploy-storybook
