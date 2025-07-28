@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function Search({
   size = 24,
   ...props
@@ -18,8 +16,8 @@ export function Search({
       aria-hidden="true"
       {...props}
     >
-      <circle cx="9" cy="9" r="5.3" />
-      <line x1="13.2" y1="13.2" x2="17" y2="17" />
+      <path d="m21 21-4.34-4.34" />
+      <circle cx="11" cy="11" r="8" />
     </svg>
   );
 }
