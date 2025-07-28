@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
 import {
+  Bell,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -13,15 +14,25 @@ import {
   Close,
   Info,
   Layers,
+  Message,
   Minus,
   Plus,
   Reset,
   Search,
+  Star,
+  Tag,
+  ThumbDown,
+  ThumbUp,
+  User,
   Waves,
   Waypoints,
 } from './';
 
 const icons = [
+  {
+    component: <Bell />,
+    label: 'Bell',
+  },
   {
     component: <Check />,
     label: 'Check',
@@ -67,6 +78,10 @@ const icons = [
     label: 'Layers',
   },
   {
+    component: <Message />,
+    label: 'Message',
+  },
+  {
     component: <Minus />,
     label: 'Minus',
   },
@@ -81,6 +96,26 @@ const icons = [
   {
     component: <Search />,
     label: 'Search',
+  },
+  {
+    component: <Star />,
+    label: 'Star',
+  },
+  {
+    component: <Tag />,
+    label: 'Tag',
+  },
+  {
+    component: <ThumbDown />,
+    label: 'ThumbDown',
+  },
+  {
+    component: <ThumbUp />,
+    label: 'ThumbUp',
+  },
+  {
+    component: <User />,
+    label: 'User',
   },
   {
     component: <Waves />,
