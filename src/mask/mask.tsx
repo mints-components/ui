@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import { Button } from '../button';
@@ -22,27 +22,38 @@ export function Mask({
   closable = true,
   onClose,
 }: MaskProps) {
+  useEffect(() => {
+    if (open) document.body.classList.add('overflow-hidden');
+    else document.body.classList.remove('overflow-hidden');
+    return () => document.body.classList.remove('overflow-hidden');
+  }, [open]);
+
   if (!open || typeof window === 'undefined') return null;
 
   return createPortal(
     <div
       className={clsx(
-        'fixed inset-0 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm',
+        'fixed inset-0 overflow-y-auto transition-opacity duration-300 backdrop-blur-sm',
         'bg-white dark:bg-zinc-900',
-        open ? 'opacity-100' : 'opacity-0 pointer-events-none',
+        open ? '' : 'pointer-events-none',
       )}
-      style={{ zIndex, opacity: open ? opacity / 100 : 0 }}
+      style={{
+        zIndex,
+        opacity: open ? opacity / 100 : 0,
+      }}
     >
-      {closable && (
-        <Button
-          icon={<Close />}
-          onClick={onClose}
-          size="sm"
-          variant="link"
-          className="absolute top-4 right-4"
-        />
-      )}
-      {children}
+      <div className="relative min-h-screen flex items-center justify-center px-4 py-12">
+        {closable && (
+          <Button
+            icon={<Close />}
+            onClick={onClose}
+            size="sm"
+            variant="link"
+            className="absolute top-4 right-4"
+          />
+        )}
+        {children}
+      </div>
     </div>,
     document.body,
   );
