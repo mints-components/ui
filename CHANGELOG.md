@@ -1,6 +1,27 @@
 # Changelog
 
-## [1.0.0] - 2024-07-23
+## [1.1.0] - 2025-07-30
+
+### ✨ Enhancements
+
+- Added `size` prop to `Checkbox` for consistent sizing control
+- Added `label` prop and polished text styles for `Radio` component
+- Added `id` support to `Checkbox` for improved accessibility
+- Introduced new icons to the icon set
+- Refined styling for the `<Search />` icon
+
+### 🐛 Fixes
+
+- Filtered `children` from native input in `Checkbox` to prevent React warnings
+- Fixed `Mask` component scroll overflow issue
+
+### 🛠 Internal Improvements
+
+- Added GitHub Issue & PR templates for consistent contribution flow
+- Refined PR template formatting to avoid GitHub checklist interpretation
+- Set up Storybook deploy workflow via GitHub Actions
+
+## [1.0.0] - 2025-07-23
 
 ### 🎉 Initial Release
 
