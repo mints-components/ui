@@ -45,23 +45,6 @@ export const Default: Story = {
   },
 };
 
-export const Variants: Story = {
-  render: (args) => (
-    <div className="flex flex-wrap gap-4">
-      <Button {...args}>Primary</Button>
-      <Button {...args} variant="outline">
-        Outline
-      </Button>
-      <Button {...args} variant="dashed">
-        Outline
-      </Button>
-      <Button {...args} variant="link">
-        Link
-      </Button>
-    </div>
-  ),
-};
-
 export const Sizes: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-4 items-center">
@@ -78,6 +61,23 @@ export const Sizes: Story = {
   ),
 };
 
+export const Variants: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap gap-4">
+      <Button {...args}>Primary</Button>
+      <Button {...args} variant="outline">
+        Outline
+      </Button>
+      <Button {...args} variant="dashed">
+        Dashed
+      </Button>
+      <Button {...args} variant="link">
+        Link
+      </Button>
+    </div>
+  ),
+};
+
 export const DisabledStates: Story = {
   args: { disabled: true },
   render: (args) => (
@@ -85,6 +85,27 @@ export const DisabledStates: Story = {
       <Button {...args}>Primary</Button>
       <Button {...args} variant="outline">
         Outline
+      </Button>
+      <Button {...args} variant="dashed">
+        Dashed
+      </Button>
+      <Button {...args} variant="link">
+        Link
+      </Button>
+    </div>
+  ),
+};
+
+export const DangerStates: Story = {
+  args: { danger: true },
+  render: (args) => (
+    <div className="flex flex-wrap gap-4">
+      <Button {...args}>Primary</Button>
+      <Button {...args} variant="outline">
+        Outline
+      </Button>
+      <Button {...args} variant="dashed">
+        Dashed
       </Button>
       <Button {...args} variant="link">
         Link
@@ -135,7 +156,25 @@ export const LoadingStates: Story = {
         <Button {...args} variant="outline">
           Outline
         </Button>
+        <Button {...args} variant="dashed">
+          Outline
+        </Button>
         <Button {...args} variant="link">
+          Link
+        </Button>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Button {...args} danger>
+          Primary
+        </Button>
+        <Button {...args} variant="outline" danger>
+          Outline
+        </Button>
+        <Button {...args} variant="dashed" danger>
+          Dashed
+        </Button>
+        <Button {...args} variant="link" danger>
           Link
         </Button>
       </div>

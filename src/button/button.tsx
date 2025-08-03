@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import React from 'react';
 
 import { Spinner } from '../spinner';
 
@@ -12,6 +11,7 @@ export interface ButtonProps
   size?: ButtonSize;
   icon?: React.ReactNode;
   loading?: boolean;
+  danger?: boolean;
 }
 
 export function Button({
@@ -20,6 +20,7 @@ export function Button({
   disabled,
   icon,
   loading = false,
+  danger = false,
   className,
   children,
   ...props
@@ -29,30 +30,36 @@ export function Button({
 
   const variantClass = {
     primary: clsx(
-      'text-white bg-zinc-900 hover:bg-zinc-600 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300',
-      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-100',
-      disabled &&
-        'bg-zinc-400 text-white hover:bg-zinc-400 dark:bg-zinc-500 dark:text-white',
+      'text-white',
+      disabled
+        ? 'bg-zinc-400 hover:bg-zinc-400'
+        : danger
+          ? 'bg-red-500 hover:bg-red-600'
+          : 'bg-zinc-900 hover:bg-zinc-600 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300',
     ),
     outline: clsx(
-      'border border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white',
-      'dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900',
-      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-100',
-      disabled &&
-        'border-zinc-300 text-zinc-300 hover:bg-transparent hover:text-zinc-300 dark:border-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-600',
+      'border',
+      disabled
+        ? 'border-zinc-400 text-zinc-400'
+        : danger
+          ? 'border-red-500 text-red-500 hover:bg-red-50 dark:hover:bg-red-900'
+          : 'border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900',
     ),
     dashed: clsx(
-      'border border-dashed border-zinc-900 text-zinc-900 hover:bg-zinc-100',
-      'dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-900 dark:hover:text-white',
-      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-zinc-100',
-      disabled &&
-        'border-zinc-300 text-zinc-300 dark:border-zinc-600 dark:text-zinc-600',
+      'border border-dashed',
+      disabled
+        ? 'border-zinc-400 text-zinc-400'
+        : danger
+          ? 'border-red-500 text-red-500 hover:bg-red-50 dark:hover:bg-red-900'
+          : 'border-zinc-900 text-zinc-900 hover:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-700',
     ),
     link: clsx(
-      'text-zinc-900 underline-offset-4 hover:underline hover:text-zinc-600',
-      'dark:text-zinc-100 dark:hover:text-zinc-300',
-      disabled &&
-        'text-zinc-400 hover:text-zinc-400 dark:text-zinc-500 dark:hover:text-zinc-500',
+      'underline-offset-4',
+      disabled
+        ? 'text-zinc-500 hover:text-zinc-600'
+        : danger
+          ? 'text-red-500 hover:underline hover:text-red-600'
+          : 'text-zinc-900 hover:underline hover:text-zinc-600 dark:text-zinc-100 dark:hover:text-zinc-300',
     ),
   }[variant];
 
