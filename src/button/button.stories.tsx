@@ -48,6 +48,9 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-4 items-center">
+      <Button {...args} size="xs">
+        XS
+      </Button>
       <Button {...args} size="sm">
         Small
       </Button>
@@ -138,6 +141,9 @@ export const LoadingStates: Story = {
   render: (args) => (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-4">
+        <Button {...args} size="xs">
+          XS
+        </Button>
         <Button {...args} size="sm">
           Small
         </Button>
@@ -180,6 +186,8 @@ export const LoadingStates: Story = {
       </div>
 
       <div className="flex items-center gap-4">
+        <Button {...args} size="xs" icon={<AiFillNotification />} />
+        <Button {...args} size="sm" icon={<AiFillNotification />} />
         <Button {...args} size="default" icon={<AiFillNotification />} />
         <Button {...args} size="lg" icon={<AiFillNotification />} />
       </div>

@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Spinner } from '../spinner';
 
 export type ButtonVariant = 'primary' | 'outline' | 'link' | 'dashed';
-export type ButtonSize = 'sm' | 'default' | 'lg';
+export type ButtonSize = 'xs' | 'sm' | 'default' | 'lg';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -67,19 +67,24 @@ export function Button({
 
   const sizeClass = isIconOnly
     ? {
+        xs: 'w-6 h-6 text-xs',
         sm: 'w-8 h-8 text-sm',
         default: 'w-10 h-10 text-base',
         lg: 'w-12 h-12 text-lg',
       }[size]
     : {
+        xs: 'text-xs px-2 py-1',
         sm: 'text-sm px-3 py-1.5',
         default: 'text-base px-4 py-2',
         lg: 'text-lg px-5 py-2.5',
       }[size];
 
-  const iconSizeClass = { sm: 'w-4 h-4', default: 'w-5 h-5', lg: 'w-6 h-6' }[
-    size
-  ];
+  const iconSizeClass = {
+    xs: 'w-3 h-3',
+    sm: 'w-4 h-4',
+    default: 'w-5 h-5',
+    lg: 'w-6 h-6',
+  }[size];
 
   return (
     <button
