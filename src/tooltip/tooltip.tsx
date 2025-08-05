@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import React, { useRef, useState } from 'react';
 
+import { Arrow } from '../arrow';
+
 export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 
 export interface TooltipProps {
@@ -33,18 +35,6 @@ export function Tooltip({
   };
 
   const bgClass = 'bg-zinc-700 dark:bg-zinc-500 text-white';
-  const arrowLight = '#3f3f46';
-  const arrowDark = '#71717b';
-
-  const getArrowColor = () => {
-    if (
-      typeof window !== 'undefined' &&
-      document.documentElement.classList.contains('dark')
-    ) {
-      return arrowDark;
-    }
-    return arrowLight;
-  };
 
   const getPositionClass = () => {
     switch (placement) {
@@ -59,67 +49,6 @@ export function Tooltip({
       default:
         return '';
     }
-  };
-
-  const Arrow = () => {
-    const color = getArrowColor();
-    if (placement === 'top') {
-      return (
-        <span
-          className="absolute left-1/2 top-full -translate-x-1/2"
-          style={{
-            width: 0,
-            height: 0,
-            borderLeft: '6px solid transparent',
-            borderRight: '6px solid transparent',
-            borderTop: `6px solid ${color}`,
-          }}
-        />
-      );
-    }
-    if (placement === 'bottom') {
-      return (
-        <span
-          className="absolute left-1/2 bottom-full -translate-x-1/2"
-          style={{
-            width: 0,
-            height: 0,
-            borderLeft: '6px solid transparent',
-            borderRight: '6px solid transparent',
-            borderBottom: `6px solid ${color}`,
-          }}
-        />
-      );
-    }
-    if (placement === 'left') {
-      return (
-        <span
-          className="absolute top-1/2 left-full -translate-y-1/2"
-          style={{
-            width: 0,
-            height: 0,
-            borderTop: '6px solid transparent',
-            borderBottom: '6px solid transparent',
-            borderLeft: `6px solid ${color}`,
-          }}
-        />
-      );
-    }
-    if (placement === 'right') {
-      return (
-        <span
-          className="absolute top-1/2 right-full -translate-y-1/2"
-          style={{
-            width: 0,
-            height: 0,
-            borderTop: '6px solid transparent',
-            borderBottom: '6px solid transparent',
-            borderRight: `6px solid ${color}`,
-          }}
-        />
-      );
-    }
-    return null;
   };
 
   const child = React.cloneElement(children, {
@@ -166,8 +95,8 @@ export function Tooltip({
           role="tooltip"
           aria-hidden={!visible}
         >
+          <Arrow placement={placement} className={clsx(bgClass)} />
           {content}
-          <Arrow />
         </span>
       )}
     </span>
