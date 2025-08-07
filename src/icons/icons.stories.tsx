@@ -12,6 +12,7 @@ import {
   CircleCheck,
   CircleClose,
   Close,
+  Ellipsis,
   Info,
   Layers,
   Message,
@@ -68,6 +69,10 @@ const icons = [
   {
     component: <Close />,
     label: 'Close',
+  },
+  {
+    component: <Ellipsis />,
+    label: 'Ellipsis',
   },
   {
     component: <Info />,

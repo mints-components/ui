@@ -8,6 +8,7 @@ export { CircleAlert } from './circle-alert';
 export { CircleCheck } from './circle-check';
 export { CircleClose } from './circle-close';
 export { Close } from './close';
+export { Ellipsis } from './ellipsis';
 export { Info } from './info';
 export { Message } from './message';
 export { Layers } from './layers';
