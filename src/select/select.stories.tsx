@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { AiFillApple } from 'react-icons/ai';
 
 import { Select } from './select';
 
@@ -70,20 +69,6 @@ export const Disabled: Story = {
       <Select {...args} value="" onChange={() => {}} />
     </div>
   ),
-};
-
-export const WithIcon: Story = {
-  render: (args) => {
-    const [value, setValue] = useState('');
-    return (
-      <Select
-        {...args}
-        icon={<AiFillApple />}
-        value={value}
-        onChange={setValue}
-      />
-    );
-  },
 };
 
 export const Controlled: Story = {

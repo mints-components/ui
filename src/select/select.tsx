@@ -20,7 +20,6 @@ export interface SelectProps {
   disabled?: boolean;
   className?: string;
   size?: SelectSize;
-  icon?: React.ReactNode;
 }
 
 export function Select({
@@ -31,7 +30,6 @@ export function Select({
   disabled = false,
   className,
   size = 'default',
-  icon,
 }: SelectProps) {
   const [open, setOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -61,7 +59,6 @@ export function Select({
         type="button"
         variant="outline"
         size={size}
-        icon={icon}
         className={clsx(
           'w-full justify-between font-medium transition-colors',
           open
