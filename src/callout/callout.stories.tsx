@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 import { Button } from '../button';
+import { Info } from '../icons';
 
 import { Callout } from './callout';
 
@@ -43,11 +43,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => (
-    <Callout
-      {...args}
-      icon={<AiOutlineInfoCircle className="w-5 h-5 text-zinc-600" />}
-    >
-      This is a basic callout.
+    <Callout {...args}>
+      <span className="flex items-center gap-1">
+        <Info size={20} />
+        This is a basic callout.
+      </span>
     </Callout>
   ),
 };
@@ -55,19 +55,24 @@ export const Default: Story = {
 export const Variants: Story = {
   render: (args) => (
     <div className="flex flex-col gap-4">
-      <Callout {...args} variant="primary" icon={<span>ℹ️</span>}>
+      <Callout {...args} variant="primary">
+        <span className="mr-1.5">ℹ️</span>
         Primary variant
       </Callout>
-      <Callout {...args} variant="outline" icon={<span>📦</span>}>
+      <Callout {...args} variant="outline">
+        <span className="mr-1.5">📦</span>
         Outline variant
       </Callout>
-      <Callout {...args} variant="danger" icon={<span>❌</span>}>
+      <Callout {...args} variant="danger">
+        <span className="mr-1.5">❌</span>
         Danger variant
       </Callout>
-      <Callout {...args} variant="warning" icon={<span>⚠️</span>}>
+      <Callout {...args} variant="warning">
+        <span className="mr-1.5">⚠️</span>
         Warning variant
       </Callout>
-      <Callout {...args} variant="success" icon={<span>✅</span>}>
+      <Callout {...args} variant="success">
+        <span className="mr-1.5">✅</span>
         Success variant
       </Callout>
     </div>
@@ -77,13 +82,16 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <div className="flex flex-col gap-4">
-      <Callout {...args} size="sm" icon={<span>🔹</span>}>
+      <Callout {...args} size="sm">
+        <span className="mr-1.5">🔹</span>
         Small size
       </Callout>
-      <Callout {...args} size="default" icon={<span>🔸</span>}>
+      <Callout {...args} size="default">
+        <span className="mr-1.5">🔸</span>
         Default size
       </Callout>
-      <Callout {...args} size="lg" icon={<span>🔷</span>}>
+      <Callout {...args} size="lg">
+        <span className="mr-1.5">🔷</span>
         Large size
       </Callout>
     </div>
@@ -94,13 +102,11 @@ export const Closable: Story = {
   render: (args) => {
     const [open, setOpen] = useState(true);
     return open ? (
-      <Callout
-        {...args}
-        closable
-        onClose={() => setOpen(false)}
-        icon={<AiOutlineInfoCircle className="w-5 h-5 text-zinc-600" />}
-      >
-        This callout can be closed by clicking ×.
+      <Callout {...args} closable onClose={() => setOpen(false)}>
+        <span className="flex items-center gap-1">
+          <Info size={20} />
+          This callout can be closed by clicking ×.
+        </span>
       </Callout>
     ) : (
       <Button variant="link" onClick={() => setOpen(true)}>

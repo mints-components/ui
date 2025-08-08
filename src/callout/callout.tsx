@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import { Button } from '../button';
+import { Close } from '../icons';
 
 export type CalloutVariant =
   | 'primary'
@@ -15,7 +16,6 @@ export interface CalloutProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: CalloutSize;
   closable?: boolean;
   onClose?: () => void;
-  icon?: React.ReactNode;
   children: React.ReactNode;
 }
 
@@ -24,7 +24,6 @@ export function Callout({
   size = 'default',
   closable = false,
   onClose,
-  icon,
   className,
   children,
   ...props
@@ -50,25 +49,18 @@ export function Callout({
     lg: 'text-lg px-5 py-4',
   }[size];
 
-  const iconClass = 'flex items-center text-zinc-400 dark:text-zinc-400';
-
-  const closeClass =
-    'ml-2 text-zinc-400 hover:text-zinc-200 dark:text-zinc-400 dark:hover:text-white rounded-md text-lg font-bold leading-none transition-colors cursor-pointer';
-
   return (
     <div className={clsx(base, variantClass, sizeClass, className)} {...props}>
-      {icon && <span className={iconClass}>{icon}</span>}
-      <span className="flex-1 ml-2">{children}</span>
+      <span className="flex-1">{children}</span>
       {closable && (
         <Button
+          icon={<Close />}
+          size="xs"
           variant="link"
           type="button"
           aria-label="Close"
-          className={closeClass}
           onClick={onClose}
-        >
-          ×
-        </Button>
+        />
       )}
     </div>
   );
