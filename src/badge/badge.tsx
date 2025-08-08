@@ -9,7 +9,6 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant;
   color?: BadgeColor;
   size?: BadgeSize;
-  icon?: React.ReactNode;
 }
 
 const colorMap = {
@@ -49,7 +48,6 @@ export function Badge({
   variant = 'solid',
   color = 'default',
   size = 'default',
-  icon,
   className,
   children,
   ...props
@@ -64,7 +62,6 @@ export function Badge({
       )}
       {...props}
     >
-      {icon && <span className="mr-1.5">{icon}</span>}
       {children}
     </span>
   );
