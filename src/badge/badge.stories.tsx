@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AiFillNotification } from 'react-icons/ai';
+
+import { Bell } from '../icons';
 
 import { Badge } from './badge';
 
@@ -34,7 +35,6 @@ const meta: Meta<typeof Badge> = {
       control: 'radio',
       options: ['sm', 'default', 'lg'],
     },
-    icon: { control: false },
   },
 };
 
@@ -58,6 +58,10 @@ export const Variants: Story = {
       </Badge>
       <Badge {...args} variant="soft">
         Soft
+      </Badge>
+      <Badge {...args}>
+        <Bell size={18} />
+        <span className="ml-1">With Icon</span>
       </Badge>
     </div>
   ),
@@ -93,33 +97,6 @@ export const Sizes: Story = {
       </Badge>
       <Badge {...args} size="lg">
         Large
-      </Badge>
-    </div>
-  ),
-};
-
-export const WithIcon: Story = {
-  render: (args) => (
-    <div className="flex flex-wrap gap-4 items-center">
-      <Badge {...args} icon={<AiFillNotification />} />
-      <Badge {...args} icon={<AiFillNotification />}>
-        With Text
-      </Badge>
-      <Badge
-        {...args}
-        color="success"
-        variant="outline"
-        icon={<AiFillNotification />}
-      >
-        Success
-      </Badge>
-      <Badge
-        {...args}
-        color="danger"
-        variant="soft"
-        icon={<AiFillNotification />}
-      >
-        Danger
       </Badge>
     </div>
   ),
