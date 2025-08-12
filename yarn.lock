@@ -1188,7 +1188,6 @@ __metadata:
     prettier: "npm:^3.3.2"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
-    react-icons: "npm:^5.5.0"
     rollup-plugin-visualizer: "npm:^6.0.3"
     storybook: "npm:^9.0.13"
     tailwindcss: "npm:^4.1.3"
@@ -6774,15 +6773,6 @@ __metadata:
   peerDependencies:
     react: ^19.1.0
   checksum: 10/c5b58605862c7b0bb044416b01c73647bb8e89717fb5d7a2c279b11815fb7b49b619fe685c404e59f55eb52c66831236cc565c25ee1c2d042739f4a2cc538aa2
-  languageName: node
-  linkType: hard
-
-"react-icons@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "react-icons@npm:5.5.0"
-  peerDependencies:
-    react: "*"
-  checksum: 10/67d5b311c23f74829cb90d58b78ddc87959d2087eda7f29b78d1ab6e337b04b0358a00724d73ab60652469d9a2c66ba3c034b8b7d4f32caae942592f92f59a84
   languageName: node
   linkType: hard
 
