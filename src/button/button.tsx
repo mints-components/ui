@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import React from 'react';
 
 import { Spinner } from '../spinner';
 
@@ -9,7 +10,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
-  icon?: React.ReactNode;
+  icon?: React.ReactElement;
   loading?: boolean;
   danger?: boolean;
 }
@@ -23,22 +24,22 @@ export function Button({
   danger = false,
   className,
   children,
+  type = 'button', // prevent accidental form submit
   ...props
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center font-medium rounded-md transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed';
+    'inline-flex items-center justify-center font-medium rounded-md transition-colors border border-transparent cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-900 dark:focus-visible:ring-zinc-100';
 
   const variantClass = {
     primary: clsx(
       'text-white',
       disabled
-        ? 'bg-zinc-400 hover:bg-zinc-400'
+        ? 'bg-zinc-400 border-zinc-400 hover:bg-zinc-400'
         : danger
-          ? 'bg-red-500 hover:bg-red-600'
-          : 'bg-zinc-900 hover:bg-zinc-600 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300',
+          ? 'bg-red-500 border-red-500 hover:bg-red-600 hover:border-red-600'
+          : 'bg-zinc-900 border-zinc-900 hover:bg-zinc-600 hover:border-zinc-600 dark:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300 dark:hover:border-zinc-300',
     ),
     outline: clsx(
-      'border',
       disabled
         ? 'border-zinc-400 text-zinc-400'
         : danger
@@ -46,7 +47,7 @@ export function Button({
           : 'border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900',
     ),
     dashed: clsx(
-      'border border-dashed',
+      'border-dashed',
       disabled
         ? 'border-zinc-400 text-zinc-400'
         : danger
@@ -63,47 +64,35 @@ export function Button({
     ),
   }[variant];
 
-  const isIconOnly = !children && (icon || loading);
+  const sizeClass = {
+    xs: 'text-xs px-2 py-1',
+    sm: 'text-sm px-3 py-1.5',
+    default: 'text-base px-4 py-2',
+    lg: 'text-lg px-5 py-2.5',
+  }[size];
 
-  const sizeClass = isIconOnly
-    ? {
-        xs: 'w-6 h-6 text-xs',
-        sm: 'w-8 h-8 text-sm',
-        default: 'w-10 h-10 text-base',
-        lg: 'w-12 h-12 text-lg',
-      }[size]
-    : {
-        xs: 'text-xs px-2 py-1',
-        sm: 'text-sm px-3 py-1.5',
-        default: 'text-base px-4 py-2',
-        lg: 'text-lg px-5 py-2.5',
-      }[size];
-
-  const iconSizeClass = {
-    xs: 'w-3 h-3',
-    sm: 'w-4 h-4',
-    default: 'w-5 h-5',
-    lg: 'w-6 h-6',
+  const iconSize = {
+    xs: 16,
+    sm: 20,
+    default: 24,
+    lg: 30,
   }[size];
 
   return (
     <button
+      type={type}
       className={clsx(base, variantClass, sizeClass, 'gap-2', className)}
       disabled={disabled || loading}
       {...props}
     >
       {loading && (
-        <span
-          className={clsx(iconSizeClass, 'flex items-center justify-center')}
-        >
-          <Spinner />
+        <span className="flex items-center justify-center">
+          <Spinner size={iconSize} />
         </span>
       )}
       {!loading && icon && (
-        <span
-          className={clsx(iconSizeClass, 'flex items-center justify-center')}
-        >
-          {icon}
+        <span className="flex items-center justify-center">
+          {React.cloneElement(icon, { size: iconSize })}
         </span>
       )}
       {children}
