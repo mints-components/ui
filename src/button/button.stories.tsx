@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AiFillNotification } from 'react-icons/ai';
+
+import { Message } from '../icons';
 
 import { Button } from './button';
 
@@ -120,16 +121,16 @@ export const DangerStates: Story = {
 export const WithIcon: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-4 items-center">
-      <Button {...args} icon={<AiFillNotification />} />
-      <Button {...args} variant="outline" icon={<AiFillNotification />} />
-      <Button {...args} variant="link" icon={<AiFillNotification />} />
-      <Button {...args} icon={<AiFillNotification />}>
+      <Button {...args} icon={<Message />} />
+      <Button {...args} variant="outline" icon={<Message />} />
+      <Button {...args} variant="link" icon={<Message />} />
+      <Button {...args} icon={<Message />}>
         With Text
       </Button>
-      <Button {...args} variant="outline" icon={<AiFillNotification />}>
+      <Button {...args} variant="outline" icon={<Message />}>
         With Text
       </Button>
-      <Button {...args} variant="link" icon={<AiFillNotification />}>
+      <Button {...args} variant="link" icon={<Message />}>
         With Text
       </Button>
     </div>
@@ -186,17 +187,17 @@ export const LoadingStates: Story = {
       </div>
 
       <div className="flex items-center gap-4">
-        <Button {...args} size="xs" icon={<AiFillNotification />} />
-        <Button {...args} size="sm" icon={<AiFillNotification />} />
-        <Button {...args} size="default" icon={<AiFillNotification />} />
-        <Button {...args} size="lg" icon={<AiFillNotification />} />
+        <Button {...args} size="xs" icon={<Message />} />
+        <Button {...args} size="sm" icon={<Message />} />
+        <Button {...args} size="default" icon={<Message />} />
+        <Button {...args} size="lg" icon={<Message />} />
       </div>
 
       <div className="flex items-center gap-4">
-        <Button {...args} size="default" icon={<AiFillNotification />}>
+        <Button {...args} size="default" icon={<Message />}>
           With Text
         </Button>
-        <Button {...args} size="lg" icon={<AiFillNotification />}>
+        <Button {...args} size="lg" icon={<Message />}>
           Large With Text
         </Button>
       </div>
