@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.2.0] - 2025-08-12
+
+### ✨ New Components
+
+- Added `TypeWriter` component
+- Added `PopConfirm` component
+
+### 🎨 Enhancements
+
+- Added `danger` prop to `Button` for red style
+- Added `xs` size option to `Button`
+- Added new icon `Ellipsis`
+
+### 🛠 Refactors
+
+- Unified `Tooltip` arrow using shared `Arrow` component
+- Removed `icon` prop from `Badge`, `Callout`, and `Select`
+
+### 🐛 Fixes
+
+- Fixed inconsistent `Button` height across variants
+
 ## [1.1.0] - 2025-07-30
 
 ### ✨ Enhancements
