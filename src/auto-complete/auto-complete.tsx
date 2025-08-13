@@ -155,13 +155,14 @@ export function AutoComplete({
         {inputNode}
         {showClear && (
           <Button
-            icon={<Close className="text-zinc-300" />}
+            icon={<Close />}
+            size="sm"
             variant="link"
             type="button"
             onClick={handleClear}
             aria-label="Clear"
             tabIndex={-1}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-1 rounded-full text-zinc-400 hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-700 dark:hover:text-zinc-100"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10"
           />
         )}
       </div>
