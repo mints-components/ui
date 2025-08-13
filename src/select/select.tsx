@@ -6,15 +6,17 @@ import { ChevronDown } from '../icons';
 
 export type SelectSize = ButtonProps['size'];
 
+export type SelectValue = string | number;
+
 export interface SelectOption {
   label: React.ReactNode;
-  value: string;
+  value: SelectValue;
   disabled?: boolean;
 }
 
 export interface SelectProps {
-  value: string;
-  onChange: (value: string) => void;
+  value: SelectValue;
+  onChange: (value: SelectValue) => void;
   options: SelectOption[];
   placeholder?: string;
   disabled?: boolean;
@@ -47,7 +49,7 @@ export function Select({
     return () => window.removeEventListener('mousedown', onClick);
   }, [open]);
 
-  function handleSelect(val: string, option: SelectOption) {
+  function handleSelect(val: SelectValue, option: SelectOption) {
     if (option.disabled) return;
     onChange(val);
     setOpen(false);
