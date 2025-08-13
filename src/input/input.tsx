@@ -38,6 +38,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       className,
       inputClassName,
       required,
+      type = 'text',
       ...props
     },
     ref,
@@ -70,6 +71,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             sizeClass[size],
             inputClassName,
           )}
+          type={type}
           {...props}
         />
         {error && <p className="text-sm text-red-500">{error}</p>}
