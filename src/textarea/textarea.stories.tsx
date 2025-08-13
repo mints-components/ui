@@ -46,6 +46,7 @@ export const WithError: Story = {
 export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-4 w-full max-w-md">
+      <TextArea label="Extra Small" placeholder="Extra Small" size="xs" />
       <TextArea label="Small" placeholder="Small size" size="sm" />
       <TextArea label="Default" placeholder="Default size" />
       <TextArea label="Large" placeholder="Large size" size="lg" />
