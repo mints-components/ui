@@ -61,6 +61,12 @@ export const WithError: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <div className="flex flex-col gap-4">
+      <Input
+        {...args}
+        size="xs"
+        label="Extra Samll"
+        placeholder="Extra Samll"
+      />
       <Input {...args} size="sm" label="Small" placeholder="Small size" />
       <Input
         {...args}
