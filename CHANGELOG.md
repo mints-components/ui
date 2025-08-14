@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.1] - 2025-08-15
+
+### 🐛 Fixes
+
+- Fixed missing export for `PopConfirm` component
+- Fixed clear button style issue in `AutoComplete`
+- Fixed number type support in `Select`
+- Set default `type="text"` for `Input`
+
+### ✨ Enhancements
+
+- Added `xs` size to `Input` and `Textarea`, including label size alignment
+
 ## [1.2.0] - 2025-08-12
 
 ### ✨ New Components
