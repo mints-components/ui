@@ -64,12 +64,21 @@ export function Button({
     ),
   }[variant];
 
-  const sizeClass = {
-    xs: 'text-xs px-2 py-1',
-    sm: 'text-sm px-3 py-1.5',
-    default: 'text-base px-4 py-2',
-    lg: 'text-lg px-5 py-2.5',
-  }[size];
+  const isIconOnly = !children && (icon || loading);
+
+  const sizeClass = isIconOnly
+    ? {
+        xs: 'px-1 py-1',
+        sm: 'px-1.5 py-1.5',
+        default: 'px-2 py-2',
+        lg: 'px-2.5 py-2.5',
+      }[size]
+    : {
+        xs: 'text-xs px-2 py-1',
+        sm: 'text-sm px-3 py-1.5',
+        default: 'text-base px-4 py-2',
+        lg: 'text-lg px-5 py-2.5',
+      }[size];
 
   const iconSize = {
     xs: 16,

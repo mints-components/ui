@@ -121,7 +121,10 @@ export const DangerStates: Story = {
 export const WithIcon: Story = {
   render: (args) => (
     <div className="flex flex-wrap gap-4 items-center">
+      <Button {...args} size="xs" icon={<Message />} />
+      <Button {...args} size="sm" icon={<Message />} />
       <Button {...args} icon={<Message />} />
+      <Button {...args} size="lg" icon={<Message />} />
       <Button {...args} variant="outline" icon={<Message />} />
       <Button {...args} variant="link" icon={<Message />} />
       <Button {...args} icon={<Message />}>
