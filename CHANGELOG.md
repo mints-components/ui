@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.3.0] - 2025-08-18
+
+### ✨ New Components
+
+- Added `Progress` component
+
+### 🎨 Enhancements
+
+- Added new icons: `eye`, `eye-closed`
+- Adjusted icon-only `Button` sizing for visual consistency
+
+### 🛠 Internal
+
+- Cleaned and simplified `package.json`
+
 ## [1.2.1] - 2025-08-15
 
 ### 🐛 Fixes
