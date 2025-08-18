@@ -13,6 +13,7 @@ export * from './icons';
 export * from './input';
 export * from './mask';
 export * from './pop-confirm';
+export * from './progress';
 export * from './radio';
 export * from './select';
 export * from './skeleton';
