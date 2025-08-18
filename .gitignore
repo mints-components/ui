@@ -27,6 +27,7 @@ types
 *.local
 storybook-static
 stats.html
+*.tgz
 
 # Editor directories and files
 .vscode/*
