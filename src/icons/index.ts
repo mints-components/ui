@@ -9,6 +9,8 @@ export { CircleCheck } from './circle-check';
 export { CircleClose } from './circle-close';
 export { Close } from './close';
 export { Ellipsis } from './ellipsis';
+export { EyeClosed } from './eye-closed';
+export { Eye } from './eye';
 export { Info } from './info';
 export { Message } from './message';
 export { Layers } from './layers';

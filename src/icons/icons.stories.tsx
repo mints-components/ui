@@ -13,6 +13,8 @@ import {
   CircleClose,
   Close,
   Ellipsis,
+  EyeClosed,
+  Eye,
   Info,
   Layers,
   Message,
@@ -73,6 +75,14 @@ const icons = [
   {
     component: <Ellipsis />,
     label: 'Ellipsis',
+  },
+  {
+    component: <EyeClosed />,
+    label: 'EyeClosed',
+  },
+  {
+    component: <Eye />,
+    label: 'Eye',
   },
   {
     component: <Info />,
