@@ -21,20 +21,15 @@
   "module": "./dist/mints-ui.js",
   "exports": {
     ".": {
-      "import": {
-        "types": "./types/index.d.ts",
-        "default": "./dist/mints-ui.js"
-      },
-      "require": {
-        "types": "./types/index.d.ts",
-        "default": "./dist/mints-ui.umd.cjs"
-      }
+      "types": "./types/index.d.ts",
+      "import": "./dist/mints-ui.js",
+      "require": "./dist/mints-ui.umd.cjs"
     },
     "./style.css": "./dist/mints-ui.min.css"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mintsuite/mints-ui.git"
+    "url": "git+https://github.com/mintsuite/mints-ui.git"
   },
   "scripts": {
     "clean": "rm -rf dist && rm -rf types",
