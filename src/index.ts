@@ -12,6 +12,7 @@ export * from './dropdown';
 export * from './icons';
 export * from './input';
 export * from './mask';
+export * from './pagination';
 export * from './pop-confirm';
 export * from './progress';
 export * from './radio';
