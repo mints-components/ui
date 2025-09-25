@@ -1,4 +1,5 @@
 export { Bell } from './bell';
+export { Bookmark } from './bookmark';
 export { Check } from './check';
 export { ChevronDown } from './chevron-down';
 export { ChevronLeft } from './chevron-left';
@@ -11,6 +12,7 @@ export { Close } from './close';
 export { Ellipsis } from './ellipsis';
 export { EyeClosed } from './eye-closed';
 export { Eye } from './eye';
+export { Heart } from './heart';
 export { Info } from './info';
 export { Message } from './message';
 export { Layers } from './layers';

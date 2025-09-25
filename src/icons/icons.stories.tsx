@@ -3,6 +3,7 @@ import React from 'react';
 
 import {
   Bell,
+  Bookmark,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -15,6 +16,7 @@ import {
   Ellipsis,
   EyeClosed,
   Eye,
+  Heart,
   Info,
   Layers,
   Message,
@@ -35,6 +37,10 @@ const icons = [
   {
     component: <Bell />,
     label: 'Bell',
+  },
+  {
+    component: <Bookmark />,
+    label: 'Bookmark',
   },
   {
     component: <Check />,
@@ -83,6 +89,10 @@ const icons = [
   {
     component: <Eye />,
     label: 'Eye',
+  },
+  {
+    component: <Heart />,
+    label: 'Heart',
   },
   {
     component: <Info />,
