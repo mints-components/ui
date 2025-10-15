@@ -4,6 +4,7 @@ import React from 'react';
 import {
   Bell,
   Bookmark,
+  Calendar,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -41,6 +42,10 @@ const icons = [
   {
     component: <Bookmark />,
     label: 'Bookmark',
+  },
+  {
+    component: <Calendar />,
+    label: 'Calendar',
   },
   {
     component: <Check />,
