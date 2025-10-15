@@ -1,5 +1,6 @@
 export { Bell } from './bell';
 export { Bookmark } from './bookmark';
+export { Calendar } from './calendar';
 export { Check } from './check';
 export { ChevronDown } from './chevron-down';
 export { ChevronLeft } from './chevron-left';
