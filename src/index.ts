@@ -6,6 +6,7 @@ export * from './callout';
 export * from './card';
 export * from './checkbox';
 export * from './collapse';
+export * from './datepicker';
 export * from './dialog';
 export * from './divider';
 export * from './dropdown';

@@ -55,6 +55,7 @@
     ]
   },
   "dependencies": {
+    "@mints/hooks": "^1.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.15.0"
   },

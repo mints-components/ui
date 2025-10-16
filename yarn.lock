@@ -1162,12 +1162,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mints/hooks@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@mints/hooks@npm:1.0.0"
+  dependencies:
+    lodash: "npm:^4.17.21"
+  peerDependencies:
+    react: ^18
+    react-dom: ^18
+  checksum: 10/1c8af218144201295b8b0aee5aec0f14ca16e0b2e68cb2a904a2d9a25ab1acf203da9de2d94e0a1901d850effae8e95ae05ba5061ffbc707347b79d7dab87ca9
+  languageName: node
+  linkType: hard
+
 "@mints/ui@workspace:.":
   version: 0.0.0-use.local
   resolution: "@mints/ui@workspace:."
   dependencies:
     "@chromatic-com/storybook": "npm:^4.0.1"
     "@mints/eslint-config": "npm:^2.0.0"
+    "@mints/hooks": "npm:^1.0.0"
     "@storybook/addon-docs": "npm:^9.0.13"
     "@storybook/react-vite": "npm:^9.0.13"
     "@tailwindcss/cli": "npm:^4.1.4"
