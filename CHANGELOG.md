@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0] - 2025-10-17
+
+### ✨ New Components
+
+- Added `Pagination` component
+- Added `DatePicker` component
+
+### 🎨 Enhancements
+
+- Enhanced `Tabs` component: support for `variant`, `size`, and `fullWidth` props
+- Added new icons: `bookmark`, `heart`, `calendar`
+
 ## [1.3.0] - 2025-08-18
 
 ### ✨ New Components
